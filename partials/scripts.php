@@ -1,4 +1,4 @@
-    <!-- BEGIN VENDOR JS-->
+<!-- BEGIN VENDOR JS-->
     <script src="app-assets/js/vendors.min.js"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
