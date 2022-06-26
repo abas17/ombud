@@ -13,14 +13,24 @@
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/vendors.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="app-assets/vendors/select2/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="app-assets/vendors/select2/select2-materialize.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/css/dataTables.checkboxes.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/css/select.dataTables.min.css">
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/themes/vertical-gradient-menu-template/materialize.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/themes/vertical-gradient-menu-template/style.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/pages/page-users.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/form-select2.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/app-invoice.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/data-tables.css">
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/custom/custom.css">
     <!-- END: Custom CSS-->
+
+
+
 </head>
 <!-- END: Head-->

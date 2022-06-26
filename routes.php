@@ -14,7 +14,19 @@ if (isset($_GET['page'])) {
         case 'users-view':
             file_exists('pages/users-view.php') ? include 'pages/users-view.php' : include "pages/404.php";
             break;
-        
+
+        /* Page Registrasi Laporan */
+        case 'registrasi-laporan':
+            file_exists('pages/registrasi-laporan.php') ? include 'pages/registrasi-laporan.php' : include "pages/404.php";
+            break;
+        case 'registrasi-laporan-create':
+            file_exists('pages/registrasi-laporan-create.php') ? include 'pages/registrasi-laporan-create.php' : include "pages/404.php";
+            break;
+
+        /* Pleno */
+        case 'pleno':
+            file_exists('pages/pleno.php') ? include 'pages/pleno.php' : include "pages/404.php";
+            break;
         // case 'lokasicreate':
         //     file_exists('pages/admin/lokasicreate.php') ? include 'pages/admin/lokasicreate.php' : include "pages/404.php";
         //     break;

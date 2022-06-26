@@ -10,14 +10,6 @@
                             <h5 class="breadcrumbs-title mt-0 mb-0"><span>Users View</span></h5>
                         </div>
                         <div class="col s12 m6 l6 right-align-md">
-                            <ol class="breadcrumbs mb-0">
-                                <li class="breadcrumb-item"><a href="?page=home">Home</a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="#">User</a>
-                                </li>
-                                <li class="breadcrumb-item active">Users View
-                                </li>
-                            </ol>
                         </div>
                     </div>
                 </div>
