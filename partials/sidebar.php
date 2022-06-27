@@ -20,8 +20,6 @@
             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="User">User</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                        <li><a href="?page=users-verified"><i class="material-icons">radio_button_unchecked</i><span data-i18n="List">Verified</span></a>
-                        </li>
                         <li><a href="?page=users-list"><i class="material-icons">radio_button_unchecked</i><span data-i18n="List">List</span></a>
                         </li>
                     </ul>
@@ -30,31 +28,27 @@
 
             <li class="navigation-header"><a class="navigation-header-text">REGISTRASI LAPORAN </a><i class="navigation-header-icon material-icons">more_horiz</i>
             </li>
-            <li class="bold"><a class="waves-effect waves-cyan " href="user-profile-page.html"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="User Profile">Laporan Masuk</span></a>
+            <li class="bold"><a class="waves-effect waves-cyan " href="?page=registrasi-laporan-masuk"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="User Profile">Laporan Masuk</span></a>
             </li>
             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="Pages">Registrasi Laporan</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                         <li><a href="?page=registrasi-laporan"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Contact">Registrasi Laporan</span></a>
                         </li>
-                        <li><a href="page-blog-list.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Blog">Blog</span></a>
+                        <li><a href="?page=pelapor"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Search">Pelapor</span></a>
                         </li>
-                        <li><a href="page-search.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Search">Search</span></a>
+                        <li><a href="?page=terlapor"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Knowledge">Terlapor</span></a>
                         </li>
-                        <li><a href="page-knowledge.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Knowledge">Knowledge</span></a>
-                        </li>
-                        <li><a href="page-timeline.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Timeline">Timeline</span></a>
-                        </li>
-                        <li><a href="page-faq.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="FAQs">FAQs</span></a>
-                        </li>
-                        <li><a href="page-account-settings.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Account Settings">Account Settings</span></a>
-                        </li>
-                        <li><a href="page-blank.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Blank">Page Blank</span></a>
-                        </li>
-                        <li><a href="page-collapse.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Page Collapse">Page Collapse</span></a>
-                        </li>
+
                     </ul>
                 </div>
+            </li>
+
+            <li class="navigation-header"><a class="navigation-header-text">VERIFIKASI FORMIL & MATERIIL </a><i class="navigation-header-icon material-icons">more_horiz</i>
+            </li>
+            <li class="navigation-header"><a class="navigation-header-text"> </a><i class="navigation-header-icon material-icons">more_horiz</i>
+            </li>
+            <li class="bold"><a class="waves-effect waves-cyan " href="?page=verifikasi"><i class="material-icons">verified_user</i><span class="menu-title" data-i18n="User Profile">Verifikasi</span></a>
             </li>
 
             <li class="navigation-header"><a class="navigation-header-text">PLENO </a><i class="navigation-header-icon material-icons">more_horiz</i>
@@ -62,16 +56,9 @@
             <li class="bold"><a class="waves-effect waves-cyan " href="?page=pleno"><i class="material-icons">group</i><span class="menu-title" data-i18n="User Profile">Pleno</span></a>
             </li>
 
-            <li class="navigation-header"><a class="navigation-header-text">VERIFIKASI FORMIL & MATERIIL </a><i class="navigation-header-icon material-icons">more_horiz</i>
-            </li>
-            <li class="navigation-header"><a class="navigation-header-text"> </a><i class="navigation-header-icon material-icons">more_horiz</i>
-            </li>
-            <li class="bold"><a class="waves-effect waves-cyan " href="user-profile-page.html"><i class="material-icons">verified_user</i><span class="menu-title" data-i18n="User Profile">Verifikasi</span></a>
-            </li>
-
             <li class="navigation-header"><a class="navigation-header-text">PEMERIKSAAN </a><i class="navigation-header-icon material-icons">more_horiz</i>
             </li>
-            <li class="bold"><a class="waves-effect waves-cyan " href="user-profile-page.html"><i class="material-icons">work</i><span class="menu-title" data-i18n="User Profile">Mulai Pemeriksaan</span></a>
+            <li class="bold"><a class="waves-effect waves-cyan " href="?page=pemeriksaan"><i class="material-icons">work</i><span class="menu-title" data-i18n="User Profile">Mulai Pemeriksaan</span></a>
             </li>
 
             <li class="navigation-header"><a class="navigation-header-text">MONITORING </a><i class="navigation-header-icon material-icons">more_horiz</i>

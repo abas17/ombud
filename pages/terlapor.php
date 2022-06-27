@@ -5,9 +5,9 @@
             </div>
             <div class="col s12">
                 <div class="col s12 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan</span></h5>
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Terlapor</span></h5>
                 </div>
-                
+
                 <!-- invoice list -->
                 <section class="invoice-list-wrapper section">
                     <!-- create invoice button-->
@@ -47,15 +47,11 @@
                                     <!-- data table checkbox -->
                                     <th></th>
                                     <th>No</th>
-                                    <th>Tanggal Agenda</th>
-                                    <th>No Agenda</th>
-                                    <th>Tipe Laporan</th>
-                                    <th>Pelapor</th>
-                                    <th>Terlapor</th>
+                                    <th>No Arsip</th>
+                                    <th>Nama Terlapor</th>
+                                    <th>Kelompok Instansi Terlapor</th>
                                     <th>Instansi Terlapor</th>
-                                    <th>Perihal</th>
-                                    <th>Kantor</th>
-                                    <th>Durasi</th>
+                                    <th>Alamat Terlapor</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -65,15 +61,11 @@
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Ryan</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>0170/LM/XI/2021/BJM</td>
+                                    <td>Direktur PDAM Intan Banjar</td>
+                                    <td>BUMN/BUMD</td>
+                                    <td>PDAM Intan Banjar</td>
+                                    <td>Jl. Pangeran Hidayatullah No.24, Komet, Kec. Banjarbaru Utara, Kota Banjar Baru</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
                                         <a href=""><i class="material-icons">remove_red_eye</i></a>
@@ -83,15 +75,11 @@
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Dean Stanley</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>0170/LM/XI/2021/BJM</td>
+                                    <td>Direktur PDAM Intan Banjar</td>
+                                    <td>BUMN/BUMD</td>
+                                    <td>PDAM Intan Banjar</td>
+                                    <td>Jl. Pangeran Hidayatullah No.24, Komet, Kec. Banjarbaru Utara, Kota Banjar Baru</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
                                         <a href=""><i class="material-icons">remove_red_eye</i></a>

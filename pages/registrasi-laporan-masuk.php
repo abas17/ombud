@@ -5,9 +5,9 @@
             </div>
             <div class="col s12">
                 <div class="col s12 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan</span></h5>
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan Masuk</span></h5>
                 </div>
-                
+
                 <!-- invoice list -->
                 <section class="invoice-list-wrapper section">
                     <!-- create invoice button-->
@@ -16,13 +16,6 @@
                         <a href="#" class="btn waves-effect waves-light invoice-export border-round z-depth-4">
                             <i class="material-icons">picture_as_pdf</i>
                             <span class="hide-on-small-only">Export to PDF</span>
-                        </a>
-                    </div>
-                    <!-- create invoice button-->
-                    <div class="invoice-create-btn">
-                        <a href="?page=registrasi-laporan-create" class="btn waves-effect waves-light invoice-create border-round z-depth-4">
-                            <i class="material-icons">add</i>
-                            <span class="hide-on-small-only">Tambah</span>
                         </a>
                     </div>
                     <div class="filter-btn">

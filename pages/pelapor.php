@@ -5,9 +5,9 @@
             </div>
             <div class="col s12">
                 <div class="col s12 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan</span></h5>
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Pelapor</span></h5>
                 </div>
-                
+
                 <!-- invoice list -->
                 <section class="invoice-list-wrapper section">
                     <!-- create invoice button-->
@@ -47,15 +47,14 @@
                                     <!-- data table checkbox -->
                                     <th></th>
                                     <th>No</th>
-                                    <th>Tanggal Agenda</th>
-                                    <th>No Agenda</th>
-                                    <th>Tipe Laporan</th>
-                                    <th>Pelapor</th>
-                                    <th>Terlapor</th>
-                                    <th>Instansi Terlapor</th>
-                                    <th>Perihal</th>
-                                    <th>Kantor</th>
-                                    <th>Durasi</th>
+                                    <th>No Arsip</th>
+                                    <th>Status Rahasia</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Nomor Identitas</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Alamat Lengkap</th>
+                                    <th>Nomor Telepon</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -65,15 +64,15 @@
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Ryan</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>0170/LM/XI/2021/BJM</td>
+                                    <td><span class="green-text">Tidak Rahasia</span>
+                                    </td>
+                                    <td>Wanda Nur</td>
+                                    <td>6371016512010006</td>
+                                    <td>Banjarmasin</td>
+                                    <td>2021-12-25</td>
+                                    <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
+                                    <td>0895606052361</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
                                         <a href=""><i class="material-icons">remove_red_eye</i></a>
@@ -83,15 +82,15 @@
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Dean Stanley</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>0170/LM/XI/2021/BJM</td>
+                                    <td><span class="red-text">Rahasia</span>
+                                    </td>
+                                    <td>Wanda Nur</td>
+                                    <td>6371016512010006</td>
+                                    <td>Banjarmasin</td>
+                                    <td>2021-12-25</td>
+                                    <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
+                                    <td>0895606052361</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
                                         <a href=""><i class="material-icons">remove_red_eye</i></a>

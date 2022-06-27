@@ -5,9 +5,9 @@
             </div>
             <div class="col s12">
                 <div class="col s12 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan</span></h5>
+                    <h5 class="breadcrumbs-title mt-0 mb-0"><span>Verifikasi</span></h5>
                 </div>
-                
+
                 <!-- invoice list -->
                 <section class="invoice-list-wrapper section">
                     <!-- create invoice button-->
@@ -16,13 +16,6 @@
                         <a href="#" class="btn waves-effect waves-light invoice-export border-round z-depth-4">
                             <i class="material-icons">picture_as_pdf</i>
                             <span class="hide-on-small-only">Export to PDF</span>
-                        </a>
-                    </div>
-                    <!-- create invoice button-->
-                    <div class="invoice-create-btn">
-                        <a href="?page=registrasi-laporan-create" class="btn waves-effect waves-light invoice-create border-round z-depth-4">
-                            <i class="material-icons">add</i>
-                            <span class="hide-on-small-only">Tambah</span>
                         </a>
                     </div>
                     <div class="filter-btn">
@@ -47,14 +40,13 @@
                                     <!-- data table checkbox -->
                                     <th></th>
                                     <th>No</th>
-                                    <th>Tanggal Agenda</th>
-                                    <th>No Agenda</th>
                                     <th>Tipe Laporan</th>
+                                    <th>No Agenda</th>
+                                    <th>Tanggal Agenda</th>
                                     <th>Pelapor</th>
                                     <th>Terlapor</th>
-                                    <th>Instansi Terlapor</th>
-                                    <th>Perihal</th>
                                     <th>Kantor</th>
+                                    <th>Status</th>
                                     <th>Durasi</th>
                                     <th>Action</th>
                                 </tr>
@@ -65,36 +57,32 @@
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
                                     <td>Laporan masyarakat</td>
-                                    <td>Ryan</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>010136.2022</td>
+                                    <td>27 Mei 2022</td>
+                                    <td>ayu</td>
+                                    <td>Ketua Pengadlan Agama Pelaihri</td>
+                                    <td>Kantor Perwakilan Kalimantan Selatan</td>
+                                    <td>Registrasi</td>
+                                    <td>31 hari</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
-                                        <a href=""><i class="material-icons">remove_red_eye</i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td></td>
                                     <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
                                     <td>Laporan masyarakat</td>
-                                    <td>Dean Stanley</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
+                                    <td>010136.2022</td>
+                                    <td>27 Mei 2022</td>
+                                    <td>ayu</td>
+                                    <td>Ketua Pengadlan Agama Pelaihri</td>
+                                    <td>Kantor Perwakilan Kalimantan Selatan</td>
+                                    <td>Registrasi</td>
+                                    <td>31 hari</td>
                                     <td>
                                         <a href=""><i class="material-icons">edit</i></a>
-                                        <a href=""><i class="material-icons">remove_red_eye</i></a>
                                     </td>
                                 </tr>
 
