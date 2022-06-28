@@ -63,7 +63,7 @@
 
             <li class="navigation-header"><a class="navigation-header-text">MONITORING </a><i class="navigation-header-icon material-icons">more_horiz</i>
             </li>
-            <li class="bold"><a class="waves-effect waves-cyan " href="user-profile-page.html"><i class="material-icons">poll</i><span class="menu-title" data-i18n="User Profile">Monitoring Registrasi Laporan </span></a>
+            <li class="bold"><a class="waves-effect waves-cyan " href="?page=monitoring"><i class="material-icons">poll</i><span class="menu-title" data-i18n="User Profile">Monitoring Registrasi Laporan </span></a>
             </li>
 
         </ul>

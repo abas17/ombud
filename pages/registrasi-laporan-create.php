@@ -41,6 +41,7 @@
                                             <label for="tanggal-agenda">Tipe Laporan</label>
                                         </div>
                                         <select class="select2 browser-default">
+                                            <option value="" disabled selected>Pilih Tipe Laporan</option>
                                             <option value="1">Laporan Masyarakat</option>
                                             <option value="2">Respon Cepat</option>
                                             <option value="3">Konsultasi Non Laporan</option>
@@ -56,6 +57,7 @@
                                             <label for="tanggal-agenda">Cara Penyampaian</label>
                                         </div>
                                         <select class="select2 browser-default">
+                                            <option value="" disabled selected>Pilih Cara Penyampaian</option>
                                             <option value="1">Surat</option>
                                             <option value="2">Datang Langsung</option>
                                             <option value="3">Email</option>
@@ -77,22 +79,13 @@
                                 </div>
 
 
-                                <!-- <div class="row">
-                                    <div class="input-field col s12">
-                                        <label for="tipe-laporan">Tipe Laporan</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <label for="cara-penyampaian">Cara Penyampaian</label>
-                                    </div>
-                                </div> -->
                                 <div class="row">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                            <a href="?page=registrasi-laporan-creates" class="btn cyan waves-effect waves-light right">
                                                 <i class="material-icons right">send</i>
-                                            </button>
+                                                <span class="hide-on-small-only">Submit</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
