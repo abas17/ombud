@@ -54,42 +54,38 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Ryan</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href=""><i class="material-icons">edit</i></a>
-                                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>1</td>
-                                    <td>30/04/2019</td>
-                                    <td>12312312</td>
-                                    <td>Laporan masyarakat</td>
-                                    <td>Dean Stanley</td>
-                                    <td>PDAM</td>
-                                    <td>BUMN</td>
-                                    <td>tidak memberikan pelayanan</td>
-                                    <td>ombudsman kalsel</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href=""><i class="material-icons">edit</i></a>
-                                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                                    </td>
-                                </tr>
+                                <?php
+                                $database = new Database();
+                                $db = $database->getConnection();
+
+                                $selectSql = "SELECT * FROM Prov";
+                                $stmt = $db->prepare($selectSql);
+                                $stmt->execute();
+
+                                $no = 1;
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                ?>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $row['nama_prov'] ?></td>
+                                        <td>12312312</td>
+                                        <td>Laporan masyarakat</td>
+                                        <td>Ryan</td>
+                                        <td>PDAM</td>
+                                        <td>BUMN</td>
+                                        <td>tidak memberikan pelayanan</td>
+                                        <td>ombudsman kalsel</td>
+                                        <td>2</td>
+                                        <td>
+                                            <a href=""><i class="material-icons">edit</i></a>
+                                            <a href=""><i class="material-icons">remove_red_eye</i></a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
 
                             </tbody>
                         </table>

@@ -21,7 +21,6 @@
                 </div>
             </div>
         </div>
-        <div class="col s12">
             <div class="container">
                 <div class="section">
 
@@ -45,8 +44,10 @@
                                                     <p><a>Registrasi Laporan Masuk</a></p>
                                                     <div class="col s12">
                                                         <div class="input-field col s12">
-                                                            <input disabled value="" id="tanggal-agenda" name="tanggal-agenda" type="text" class="validate">
-                                                            <label for="tanggal-agenda">Tanggal Agenda</label>
+                                                            <div>
+                                                                <label for="tanggal-agenda">Tanggal Agenda</label>
+                                                            </div>
+                                                            <input disabled value="" id="tanggal-agenda" name="tanggal-agenda" type="date" class="validate">
                                                         </div>
                                                         <div class="input-field col s12">
                                                             <input value="" id="tipe-laporan" name="tipe-laporan" type="text" class="validate">
@@ -138,19 +139,213 @@
 
                                             <!-- Pelapor -->
                                             <div id="pelapor" class="col s12">
-                                                <p class="mt-2 mb-2">
-                                                    Sugar plum sugar plum carrot cake. Cupcake topping marshmallow sweet roll bear claw sugar plum
-                                                    jelly beans. Jelly-o chocolate muffin.
-                                                </p>
+                                                <form class="row mt-2 mb-2">
+                                                    <p><a>Informasi Pelapor</a></p>
+                                                    <div class="col s12">
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="identitas_pelapor_rahasia">Identitas Pelapor Dirahasiakan</label>
+                                                            </div>
+                                                            <select name="identitas_pelapor_rahasia">
+                                                                <option value="" disabled selected>Pilih Identitas Pelapor</option>
+                                                                <option value="1">Ya</option>
+                                                                <option value="0">Tidak</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="nama_pelapor" name="nama_pelapor" type="text" class="validate">
+                                                            <label for="nama_pelapor">Nama Lengkap</label>
+                                                        </div>
+
+
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="warga_negara">Warga Negara</label>
+                                                            </div>
+                                                            <select name="warga_negara">
+                                                                <option value="" disabled selected>Pilih Warga Negara</option>
+                                                                <option value="warga_negara_1">WNI</option>
+                                                                <option value="warga_negara_2">WNA</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="jenis_identitas">Jenis Identitas</label>
+                                                            </div>
+                                                            <select name="jenis_identitas">
+                                                                <option value="" disabled selected>Pilih Jenis Identitas</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="nomor_identitas" name="nomor_identitas" type="text" class="validate">
+                                                            <label for="nomor_identitas">Nomor Identitas</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="tempat_lahir" name="tempat_lahir" type="text" class="validate">
+                                                            <label for="tempat_lahir">Tempat Lahir</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="tanggal_lahir">Tanggal Lahir</label>
+                                                            </div>
+                                                            <input value="" id="tanggal_lahir" name="tanggal_lahir" type="date" class="validate">
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="jenis_kelamin">Jenis Kelamin</label>
+                                                            </div>
+                                                            <select name="jenis_kelamin">
+                                                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                                                <option value="jenis_kelamin_1">Laki-laki</option>
+                                                                <option value="jenis_kelamin_2">Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="pendidikan_pelapor">Pendidikan Terakhir</label>
+                                                            </div>
+                                                            <select name="pendidikan_pelapor">
+                                                                <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+                                                                <option value="pendidikan_1">SD</option>
+                                                                <option value="pendidikan_2">SMP</option>
+                                                                <option value="pendidikan_4">D3</option>
+                                                                <option value="pendidikan_5">S1</option>
+                                                                <option value="pendidikan_6">S2</option>
+                                                                <option value="pendidikan_7">S3</option>
+                                                                <option value="pendidikan_8">Tidak Sekolah</option>
+                                                                <option value="pendidikan_3">SMA/Sederajat</option>
+                                                                <option value="pendidikan_9">Lainnya</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="status_perkawinan">Status Perkawinan</label>
+                                                            </div>
+                                                            <select name="status_perkawinan">
+                                                                <option value="" disabled selected>Pilih Status Perkawinan</option>
+                                                                <option value="status_kawin_1">Kawain</option>
+                                                                <option value="status_kawin_2">Belum Kawin</option>
+                                                                <option value="status_kawin_4">Cerai Mati</option>
+                                                                <option value="status_kawin_5">Cerai Hidup</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="pekerjaan" name="pekerjaan" type="text" class="validate">
+                                                            <label for="pekerjaan">Pekerjaan</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <textarea value="" id="alamat_lengkap" name="alamat_lengkap" type="text" class="validate materialize-textarea"></textarea>
+                                                            <label for="alamat_lengkap">Alamat Lengkap</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="provinsi">Provinsi</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="provinsi">
+                                                                <option value="" disabled selected>Pilih Provinsi</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="kab_kota_pelapor">Kota/Kabupaten</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="kab_kota_pelapor">
+                                                                <option value="" disabled selected>Pilih Kota/Kabupaten</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="kec_pelapor">Kecamatan</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="kec_pelapor">
+                                                                <option value="" disabled selected>Pilih Kecamatan</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="no_telp" name="no_telp" type="text" class="validate">
+                                                            <label for="no_telp">Nomor Telepon</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="email" name="email" type="email" class="validate">
+                                                            <label for="email">Email</label>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                             <!-- End Pelapor  -->
 
                                             <!-- Terlapor -->
                                             <div id="terlapor" class="col s12">
-                                                <p class="mt-2 mb-2">
-                                                    Cupcake ipsum dolor. Sit amet cookie gummies lollipop topping soufflé. Tootsie roll brownie gummi
-                                                    bears jelly beans danish caramels jelly beans.
-                                                </p>
+                                                <form class="row mt-2 mb-2">
+                                                    <p><a>Informasi Terlapor</a></p>
+                                                    <div class="col s12">
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="nama_terlapor" name="nama_terlapor" type="text" class="validate">
+                                                            <label for="nama_terlapor">Nama Terlapor</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="jabatan_terlapor" name="jabatan_terlapor" type="text" class="validate">
+                                                            <label for="jabatan_terlapor">Jabatan Terlapor</label>
+                                                        </div>
+
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="kelompok_klasifikasi_instansi">Kelompok Instansi Terlapor</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="kelompok_klasifikasi_instansi">
+                                                                <option value="" disabled selected>Pilih Kelompok Instansi Terlapor</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="klasifikasi_instansi_terlapor">Klasifikasi Instansi Terlapor</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="klasifikasi_instansi_terlapor">
+                                                                <option value="" disabled selected>Pilih Klasifikasi Instansi Terlapor</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <input value="" id="instansi_terlapor" name="instansi_terlapor" type="text" class="validate">
+                                                            <label for="instansi_terlapor">Instansi Terlapor</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <textarea value="" id="alamat_terlapor" name="alamat_terlapor" type="text" class="validate materialize-textarea"></textarea>
+                                                            <label for="alamat_terlapor">Alamat Terlapor</label>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="provinsi">Provinsi</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="provinsi">
+                                                                <option value="" disabled selected>Pilih Provinsi</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="kab_kota_pelapor">Kota/Kabupaten</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="kab_kota_pelapor">
+                                                                <option value="" disabled selected>Pilih Kota/Kabupaten</option>
+
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-field col s12">
+                                                            <div>
+                                                                <label for="kec_pelapor">Kecamatan</label>
+                                                            </div>
+                                                            <select class="select2 browser-default" name="kec_pelapor">
+                                                                <option value="" disabled selected>Pilih Kecamatan</option>
+
+                                                            </select>
+                                                        </div>
+                                                </form>
                                             </div>
                                             <!-- End Terlapor -->
                                         </div>
@@ -173,7 +368,6 @@
                 </div>
                 <div class="content-overlay"></div>
             </div>
-        </div>
     </div>
     <!-- END: Page Main-->
 

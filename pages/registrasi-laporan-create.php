@@ -81,7 +81,7 @@
 
                                 <div class="row">
                                     <div class="row">
-                                        <div class="input-field col s12">
+                                        <div class="input-field col s12 pr-6">
                                             <a href="?page=registrasi-laporan-creates" class="btn cyan waves-effect waves-light right">
                                                 <i class="material-icons right">send</i>
                                                 <span class="hide-on-small-only">Submit</span>
