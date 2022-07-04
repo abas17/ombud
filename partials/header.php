@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="app-assets/vendors/select2/select2-materialize.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/css/dataTables.checkboxes.css">
     <link rel="stylesheet" type="text/css" href="app-assets/vendors/data-tables/css/select.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/sweetalert/sweetalert.css">
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/themes/vertical-gradient-menu-template/materialize.min.css">
