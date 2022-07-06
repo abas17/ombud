@@ -23,4 +23,5 @@
 <script src="app-assets/js/scripts/extra-components-sweetalert.js"></script>
 <script src="app-assets/js/scripts/form-file-uploads.js"></script>
 <script src="app-assets/js/scripts/advance-ui-media.js"></script>
+<script src="app-assets/js/scripts/ui-alerts.js"></script>
 <!-- END PAGE LEVEL JS-->
