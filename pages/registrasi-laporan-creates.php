@@ -107,24 +107,16 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="substansi">Substansi</label>
                                             </div>
-                                            <select class="select2 browser-default" name="substansi">
+                                            <select class="select2 browser-default" name="substansi" id="substansi">
                                                 <option value="" disabled selected>---Pilih Substansi---</option>
-                                                <?php
-                                                $selectSql = "SELECT * FROM substansi ORDER BY id_sub";
-                                                $stmt_substansi = $db->prepare($selectSql);
-                                                $stmt_substansi->execute();
 
-                                                while ($row_substansi = $stmt_substansi->fetch(PDO::FETCH_ASSOC)) {
-                                                    echo '<option value="' . $row_substansi["pilih_substansi"] . '">' . $row_substansi["sub"] . '</option>';
-                                                }
-                                                ?>
                                             </select>
                                         </div>
                                         <div class="input-field col s12">
                                             <div>
                                                 <label for="klasifikasi_permasalahan">Pokok Permasalahan</label>
                                             </div>
-                                            <select class="select2 browser-default" name="klasifikasi_permasalahan">
+                                            <select class="select2 browser-default" name="klasifikasi_permasalahan" id="klasifikasi_permasalahan">
                                                 <option value="" disabled selected>---Pilih Pokok Permasalahan---</option>
 
                                             </select>
@@ -159,23 +151,29 @@ $db = $database->getConnection();
                                             <input value="" id="nama_pelapor" name="nama_pelapor" type="text" class="validate">
                                             <label for="nama_pelapor">Nama Lengkap</label>
                                         </div>
-
+                                        <div class="row section">
+                                            <div class="col s12 ml-1">
+                                                <p>Upload File KTP Verifikasi Formil</p>
+                                            </div>
+                                            <div class="col s6 m8 right">
+                                                <input name="file_ktp" type="file" width="250" id="input-file-events" class="dropify-event" data-default-file="" />
+                                            </div>
+                                        </div>
 
                                         <div class="input-field col s12">
                                             <div>
                                                 <label for="warga_negara">Warga Negara</label>
                                             </div>
-                                            <select name="warga_negara">
+                                            <select class="select2 browser-default" name="warga_negara" id="warga_negara">
                                                 <option value="" disabled selected>---Pilih Warga Negara---</option>
-                                                <option value="warga_negara_1">WNI</option>
-                                                <option value="warga_negara_2">WNA</option>
+
                                             </select>
                                         </div>
                                         <div class="input-field col s12">
                                             <div>
                                                 <label for="jenis_identitas">Jenis Identitas</label>
                                             </div>
-                                            <select name="jenis_identitas">
+                                            <select class="select2 browser-default" name="jenis_identitas" id="jenis_identitas">
                                                 <option value="" disabled selected>---Pilih Jenis Identitas---</option>
 
                                             </select>
@@ -227,7 +225,7 @@ $db = $database->getConnection();
                                             </div>
                                             <select name="status_perkawinan">
                                                 <option value="" disabled selected>---Pilih Status Perkawinan---</option>
-                                                <option value="status_kawin_1">Kawain</option>
+                                                <option value="status_kawin_1">Kawin</option>
                                                 <option value="status_kawin_2">Belum Kawin</option>
                                                 <option value="status_kawin_4">Cerai Mati</option>
                                                 <option value="status_kawin_5">Cerai Hidup</option>
@@ -238,14 +236,14 @@ $db = $database->getConnection();
                                             <label for="pekerjaan">Pekerjaan</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <textarea value="" id="alamat_lengkap" name="alamat_lengkap" type="text" class="validate materialize-textarea"></textarea>
-                                            <label for="alamat_lengkap">Alamat Lengkap</label>
+                                            <textarea value="" id="alamat_lengkap_pel" name="alamat_lengkap_pel" type="text" class="validate materialize-textarea"></textarea>
+                                            <label for="alamat_lengkap_pel">Alamat Lengkap</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <div>
                                                 <label for="prov_pelapor">Provinsi</label>
                                             </div>
-                                            <select class="select2 browser-default" name="provinsi" id="provinsi">
+                                            <select class="select2 browser-default" name="provinsi_pel" id="provinsi_pel">
                                                 <option value="" disabled selected>---Pilih Provinsi---</option>
 
                                             </select>
@@ -254,7 +252,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="kab_pelapor">Kota/Kabupaten</label>
                                             </div>
-                                            <select class="select2 browser-default" name="kabupaten" id="kabupaten">
+                                            <select class="select2 browser-default" name="kabupaten_pel" id="kabupaten_pel">
                                                 <option value="" disabled selected>---Pilih Kota/Kabupaten---</option>
 
                                             </select>
@@ -263,7 +261,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="kec_pelapor">Kecamatan</label>
                                             </div>
-                                            <select class="select2 browser-default" name="kecamatan" id="kecamatan">
+                                            <select class="select2 browser-default" name="kecamatan_pel" id="kecamatan_pel">
                                                 <option value="" disabled selected>---Pilih Kecamatan---</option>
 
                                             </select>
@@ -299,7 +297,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="kelompok_klasifikasi_instansi">Kelompok Instansi Terlapor</label>
                                             </div>
-                                            <select class="select2 browser-default" name="kelompok_klasifikasi_instansi">
+                                            <select class="select2 browser-default" name="kelompok_klasifikasi_instansi" id="kelompok_klasifikasi_instansi">
                                                 <option value="" disabled selected>---Pilih Kelompok Instansi Terlapor---</option>
 
                                             </select>
@@ -308,7 +306,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="klasifikasi_instansi_terlapor">Klasifikasi Instansi Terlapor</label>
                                             </div>
-                                            <select class="select2 browser-default" name="klasifikasi_instansi_terlapor">
+                                            <select class="select2 browser-default" name="klasifikasi_instansi_terlapor" id="klasifikasi_instansi_terlapor">
                                                 <option value="" disabled selected>---Pilih Klasifikasi Instansi Terlapor---</option>
 
                                             </select>
@@ -325,7 +323,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="provinsi">Provinsi</label>
                                             </div>
-                                            <select class="select2 browser-default" name="provinsi">
+                                            <select class="select2 browser-default" name="provinsi_ter" id="provinsi_ter">
                                                 <option value="" disabled selected>---Pilih Provinsi---</option>
 
                                             </select>
@@ -334,7 +332,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="kab_kota_terlapor">Kota/Kabupaten</label>
                                             </div>
-                                            <select class="select2 browser-default" name="kab_kota_terlapor">
+                                            <select class="select2 browser-default" name="kabupaten_ter" id="kabupaten_ter">
                                                 <option value="" disabled selected>---Pilih Kota/Kabupaten---</option>
 
                                             </select>
@@ -343,7 +341,7 @@ $db = $database->getConnection();
                                             <div>
                                                 <label for="kec_pelapor">Kecamatan</label>
                                             </div>
-                                            <select class="select2 browser-default" name="kec_pelapor">
+                                            <select class="select2 browser-default" name="kecamatan_ter" id="kecamatan_ter">
                                                 <option value="" disabled selected>---Pilih Kecamatan---</option>
 
                                             </select>
@@ -355,7 +353,7 @@ $db = $database->getConnection();
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s12 pr-7">
-                                    <a href="?page=registrasi-laporan-creates" class="btn cyan waves-effect waves-light right">
+                                    <a href="#" class="btn cyan waves-effect waves-light right simpan">
                                         <i class="material-icons right">send</i>
                                         <span class="hide-on-small-only">Submit</span>
                                     </a>
@@ -373,19 +371,20 @@ $db = $database->getConnection();
 
 <?php include 'partials/scripts.php'; ?>
 
+
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(provinsi_pel).ready(function() {
         $.ajax({
             type: 'POST',
             url: "get_provinsi.php",
             cache: false,
             success: function(msg) {
-                $("#provinsi").html(msg);
+                $("#provinsi_pel").html(msg);
             }
         });
 
-        $("#provinsi").change(function() {
-            var provinsi = $("#provinsi").val();
+        $("#provinsi_pel").change(function() {
+            var provinsi = $("#provinsi_pel").val();
             $.ajax({
                 type: 'POST',
                 url: "get_kabupaten.php",
@@ -394,13 +393,13 @@ $db = $database->getConnection();
                 },
                 cache: false,
                 success: function(msg) {
-                    $("#kabupaten").html(msg);
+                    $("#kabupaten_pel").html(msg);
                 }
             });
         });
 
-        $("#kabupaten").change(function() {
-            var kabupaten = $("#kabupaten").val();
+        $("#kabupaten_pel").change(function() {
+            var kabupaten = $("#kabupaten_pel").val();
             $.ajax({
                 type: 'POST',
                 url: "get_kecamatan.php",
@@ -409,9 +408,159 @@ $db = $database->getConnection();
                 },
                 cache: false,
                 success: function(msg) {
-                    $("#kecamatan").html(msg);
+                    $("#kecamatan_pel").html(msg);
                 }
             });
         });
     });
+
+    $(provinsi_ter).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_provinsi.php",
+            cache: false,
+            success: function(msg) {
+                $("#provinsi_ter").html(msg);
+            }
+        });
+
+        $("#provinsi_ter").change(function() {
+            var provinsi = $("#provinsi_ter").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kabupaten.php",
+                data: {
+                    provinsi: provinsi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kabupaten_ter").html(msg);
+                }
+            });
+        });
+
+        $("#kabupaten_ter").change(function() {
+            var kabupaten = $("#kabupaten_ter").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kecamatan.php",
+                data: {
+                    kabupaten: kabupaten
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kecamatan_ter").html(msg);
+                }
+            });
+        });
+    });
+
+    $(substansi).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_sub.php",
+            cache: false,
+            success: function(msg) {
+                $("#substansi").html(msg);
+            }
+        });
+
+        $("#substansi").change(function() {
+            var substansi = $("#substansi").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_pokper.php",
+                data: {
+                    substansi: substansi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#klasifikasi_permasalahan").html(msg);
+                }
+            });
+        });
+    });
+
+    $(warga_negara).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_warga.php",
+            cache: false,
+            success: function(msg) {
+                $("#warga_negara").html(msg);
+            }
+        });
+
+        $("#warga_negara").change(function() {
+            var warga = $("#warga_negara").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_identitas.php",
+                data: {
+                    warga: warga
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#jenis_identitas").html(msg);
+                }
+            });
+        });
+
+    });
+
+    $(kelompok_klasifikasi_instansi).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_kel_klas.php",
+            cache: false,
+            success: function(msg) {
+                $("#kelompok_klasifikasi_instansi").html(msg);
+            }
+        });
+
+        $("#kelompok_klasifikasi_instansi").change(function() {
+            var klas_ins = $("#kelompok_klasifikasi_instansi").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_klas_ins.php",
+                data: {
+                    klas_ins: klas_ins
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#klasifikasi_instansi_terlapor").html(msg);
+                }
+            });
+        });
+
+    });
+</script>
+
+<script>
+    $('.simpan').click(function() {
+        swal({
+            title: "Anda Yakin ingin menyimpan registrasi laporan?",
+            text: "Pastikan data yang Anda isi sudah benar",
+            icon: 'warning',
+            dangerMode: true,
+            buttons: {
+                cancel: 'Batal',
+                delete: 'Simpan'
+            }
+        }).then(function(willDelete) {
+            if (willDelete) {
+                swal({
+                    title: 'Tersimpan',
+                    icon: "success",
+                }).then(function() {
+                    window.location = "?page=registrasi-laporan";
+                });
+            } else {
+                swal({
+                    title: 'Dibatalkan',
+                    icon: "error",
+                });
+            }
+        });
+    })
 </script>

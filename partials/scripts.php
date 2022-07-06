@@ -8,6 +8,7 @@
 <script src="app-assets/vendors/data-tables/js/datatables.checkboxes.min.js"></script>
 <script src="app-assets/vendors/data-tables/js/dataTables.select.min.js"></script>
 <script src="app-assets/vendors/sweetalert/sweetalert.min.js"></script>
+<script src="app-assets/vendors/dropify/js/dropify.min.js"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN THEME  JS-->
 <script src="app-assets/js/plugins.js"></script>
@@ -20,4 +21,6 @@
 <script src="app-assets/js/scripts/app-invoice.min.js"></script>
 <script src="app-assets/js/scripts/data-tables.js"></script>
 <script src="app-assets/js/scripts/extra-components-sweetalert.js"></script>
+<script src="app-assets/js/scripts/form-file-uploads.js"></script>
+<script src="app-assets/js/scripts/advance-ui-media.js"></script>
 <!-- END PAGE LEVEL JS-->
