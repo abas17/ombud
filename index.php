@@ -1,5 +1,7 @@
 <?php
-session_start()
+session_start();
+
+include 'fungsi.php';
 ?>
 <!DOCTYPE html>
 <html class="loading" lang="en">

@@ -4,17 +4,8 @@
         <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.php"><img class="hide-on-med-and-down " src="app-assets/images/logo/1x1.png" alt="materialize logo" /><img class="show-on-medium-and-down hide-on-med-and-up" src="app-assets/images/logo/1x1.png" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">Ombudsman</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan" href="JavaScript:void(0)"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li><a href="dashboard-modern.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Modern">Modern</span></a>
-                    </li>
-                    <li><a href="dashboard-ecommerce.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="eCommerce">eCommerce</span></a>
-                    </li>
-                    <li><a href="dashboard-analytics.html"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Analytics">Analytics</span></a>
-                    </li>
-                </ul>
-            </div>
+        
+        <li><a href="index.php"><i class="material-icons">settings_input_svideo</i><span data-i18n="eCommerce">Dashboard</span></a>
         </li>
 
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="User">User</span></a>

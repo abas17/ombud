@@ -16,12 +16,7 @@
         </a>
     </div>
     <!-- create invoice button-->
-    <div class="invoice-create-btn">
-        <a href="?page=registrasi-laporan-create" class="btn waves-effect waves-light invoice-create border-round z-depth-4">
-            <i class="material-icons">add</i>
-            <span class="hide-on-small-only">Tambah</span>
-        </a>
-    </div>
+    
     <div class="filter-btn">
         <!-- Dropdown Trigger -->
         <a class='dropdown-trigger btn waves-effect waves-light purple darken-1 border-round' href='#' data-target='btn-filter'>
@@ -68,20 +63,7 @@
                         <a href=""><i class="material-icons">remove_red_eye</i></a>
                     </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>0170/LM/XI/2021/BJM</td>
-                    <td>Direktur PDAM Intan Banjar</td>
-                    <td>BUMN/BUMD</td>
-                    <td>PDAM Intan Banjar</td>
-                    <td>Jl. Pangeran Hidayatullah No.24, Komet, Kec. Banjarbaru Utara, Kota Banjar Baru</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
+                
 
             </tbody>
         </table>

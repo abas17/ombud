@@ -1,3 +1,36 @@
+<?php
+if (isset($_SESSION['hasil'])) {
+    if ($_SESSION['hasil']) {
+?>
+        <div class="card-alert card gradient-45deg-green-teal">
+            <div class="card-content white-text">
+                <p>
+                    <i class="material-icons">check</i> <?php echo $_SESSION['pesan'] ?>
+                </p>
+            </div>
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    <?php
+    } else {
+    ?>
+        <div class="card-alert card gradient-45deg-red-pink">
+            <div class="card-content white-text">
+                <p>
+                    <i class="material-icons">error</i> <?php echo $_SESSION['pesan'] ?>
+                </p>
+            </div>
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+<?php
+    }
+    unset($_SESSION['hasil']);
+    unset($_SESSION['pesan']);
+}
+?>
 <div class="pt-3 pb-0" id="breadcrumbs-wrapper">
     <div class="col s12 m6 l6">
         <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan</span></h5>
@@ -57,43 +90,43 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>30/04/2019</td>
-                    <td>12312312</td>
-                    <td>Laporan masyarakat</td>
-                    <td>Ryan</td>
-                    <td>PDAM</td>
-                    <td>BUMN</td>
-                    <td>tidak memberikan pelayanan</td>
-                    <td>ombudsman kalsel</td>
-                    <td>2</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>30/04/2019</td>
-                    <td>12312312</td>
-                    <td>Laporan masyarakat</td>
-                    <td>Dean Stanley</td>
-                    <td>PDAM</td>
-                    <td>BUMN</td>
-                    <td>tidak memberikan pelayanan</td>
-                    <td>ombudsman kalsel</td>
-                    <td>2</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
-
+                <?php
+                $database = new Database();
+                $db = $database->getConnection();
+                $selectSql = "SELECT r.id_reg,r.tgl_agenda,r.no_agenda,r.tipe_laporan,p.nama_pelapor,t.nama_terlapor,t.instansi_terlapor,r.perihal 
+                FROM registrasi_lap_masyarakat r LEFT JOIN pelapor p ON r.id_reg=p.id_pel LEFT JOIN terlapor t ON p.id_pel=t.id_ter ORDER BY id_reg desc";
+                $stmt = $db->prepare($selectSql);
+                $stmt->execute();
+                $no = 1;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo tgl_indo($row['tgl_agenda']) ?></td>
+                        <td><?php echo $row['no_agenda'] ?></td>
+                        <td><?php echo $row['tipe_laporan'] ?></td>
+                        <td><?php echo $row['nama_pelapor'] ?></td>
+                        <td><?php echo $row['nama_terlapor'] ?></td>
+                        <td><?php echo $row['instansi_terlapor'] ?></td>
+                        <td><?php echo $row['perihal'] ?></td>
+                        <td></td>
+                        <td><?php $durasi = new DateTime($row['tgl_agenda']);
+                            $today = new DateTime();
+                            $diff = $today->diff($durasi);
+                            echo $diff->d;
+                            echo " Hari";
+                            ?>
+                        </td>
+                        <td>
+                            <a href="?page=registrasi-laporan-edit&id=<?php echo $row['id_reg'] ?>"><i class="material-icons">edit</i></a>
+                            <a href=""><i class="material-icons">remove_red_eye</i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
     </div>

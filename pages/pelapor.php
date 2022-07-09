@@ -1,4 +1,3 @@
-
 <div class="pt-3 pb-0" id="breadcrumbs-wrapper">
     <div class="col s12 m6 l6">
         <h5 class="breadcrumbs-title mt-0 mb-0"><span>Pelapor</span></h5>
@@ -17,12 +16,7 @@
         </a>
     </div>
     <!-- create invoice button-->
-    <div class="invoice-create-btn">
-        <a href="?page=registrasi-laporan-create" class="btn waves-effect waves-light invoice-create border-round z-depth-4">
-            <i class="material-icons">add</i>
-            <span class="hide-on-small-only">Tambah</span>
-        </a>
-    </div>
+
     <div class="filter-btn">
         <!-- Dropdown Trigger -->
         <a class='dropdown-trigger btn waves-effect waves-light purple darken-1 border-round' href='#' data-target='btn-filter'>
@@ -47,9 +41,9 @@
                     <th>No</th>
                     <th>No Arsip</th>
                     <th>Status Rahasia</th>
-                    <th>Nama Lengkap</th>
-                    <th>Nomor Identitas</th>
-                    <th>Tempat Lahir</th>
+                    <th>Nama Lengkap 1</th>
+                    <th>Nomor Identitas 2</th>
+                    <th>Tempat Lahir 3</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat Lengkap</th>
                     <th>Nomor Telepon</th>
@@ -58,42 +52,40 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>0170/LM/XI/2021/BJM</td>
-                    <td><span class="green-text">Tidak Rahasia</span>
-                    </td>
-                    <td>Wanda Nur</td>
-                    <td>6371016512010006</td>
-                    <td>Banjarmasin</td>
-                    <td>2021-12-25</td>
-                    <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
-                    <td>0895606052361</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>0170/LM/XI/2021/BJM</td>
-                    <td><span class="red-text">Rahasia</span>
-                    </td>
-                    <td>Wanda Nur</td>
-                    <td>6371016512010006</td>
-                    <td>Banjarmasin</td>
-                    <td>2021-12-25</td>
-                    <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
-                    <td>0895606052361</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
+                <?php
+                $database = new Database();
+                $db = $database->getConnection();
+                $selectSql = "SELECT * FROM pelapor
+JOIN provinsi ON pelapor.provinsi_pel = provinsi.id_prov
+JOIN kabupaten ON pelapor.kabupaten_pel = kabupaten.id_kab
+JOIN kecamatan ON pelapor.kecamatan_pel = kecamatan.id_kec";
+                $stmt = $db->prepare($selectSql);
+                $stmt->execute();
+                $no = 1;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?php echo $no++ ?></td>
+                        <td>0170/LM/XI/2021/BJM</td>
+                        <td><span class="green-text">Tidak Rahasia</span>
+                        </td>
+                        <td><?php echo $row['nama_prov'] ?></td>
+                        <td><?php echo $row['nama_kab'] ?></td>
+                        <td><?php echo $row['nama_kec'] ?></td>
+                        <td>2021-12-25</td>
+                        <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
+                        <td>0895606052361</td>
+                        <td>
+                            <a href=""><i class="material-icons">edit</i></a>
+                            <a href=""><i class="material-icons">remove_red_eye</i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+
 
             </tbody>
         </table>

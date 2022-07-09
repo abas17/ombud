@@ -2,6 +2,28 @@
 $database = new Database();
 $db = $database->getConnection();
 
+$id = $_GET['id'];
+$findSql = "SELECT * FROM registrasi_lap_masyarakat WHERE id_reg = ?";
+$stmt = $db->prepare($findSql);
+$stmt->bindParam(1, $id);
+$stmt->execute();
+$row = $stmt->fetch();
+
+
+if (isset($_POST['button_create'])) {
+
+
+
+    
+}
+
+
+
+// echo $insertSql;
+
+?>
+
+<?php
 if (isset($_SESSION['hasil'])) {
     if ($_SESSION['hasil']) {
 ?>
@@ -74,12 +96,12 @@ if (isset($_SESSION['hasil'])) {
                         <div class="col s12">
                             <!-- Laporan -->
                             <div id="laporan" class="col s12">
-                                <form class="row mt-2 mb-2">
+                                <form method="POST" class="row mt-2 mb-2">
                                     <p><a>Registrasi Laporan Masuk</a></p>
                                     <div class="col s12">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input disabled type="date" id="tgl_agenda" name="tgl_agenda">
+                                                <input value="<?php echo $row['tgl_agenda'] ?>" disabled type="date" id="tgl_agenda" name="tgl_agenda">
                                                 <label for="tgl_agenda">Tanggal Agenda</label>
                                             </div>
                                         </div>
@@ -90,16 +112,8 @@ if (isset($_SESSION['hasil'])) {
                                                     <label for="tipe_laporan">---Tipe Laporan---</label>
                                                 </div>
                                                 <select disabled name="tipe_laporan" class="select2 browser-default">
-                                                    <option value="" disabled selected>---Pilih Tipe Laporan---</option>
-                                                    <?php
-                                                    $selectSql = "SELECT * FROM tipe_laporan ORDER BY id_tipe_lap";
-                                                    $stmt_tipe_laporan = $db->prepare($selectSql);
-                                                    $stmt_tipe_laporan->execute();
+                                                    <option value="" disabled selected><?php echo $row['tipe_laporan'] ?></option>
 
-                                                    while ($row_tipe_laporan = $stmt_tipe_laporan->fetch(PDO::FETCH_ASSOC)) {
-                                                        echo '<option value="' . $row_tipe_laporan["pilih_tipe_lap"] . '">' . $row_tipe_laporan["tipe_lap"] . '</option>';
-                                                    }
-                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -110,16 +124,8 @@ if (isset($_SESSION['hasil'])) {
                                                     <label for="cara_penyampaian">Cara Penyampaian</label>
                                                 </div>
                                                 <select disabled name="cara_penyampaian" class="select2 browser-default">
-                                                    <option value="" disabled selected>---Pilih Cara Penyampaian---</option>
-                                                    <?php
-                                                    $selectSql = "SELECT * FROM cara_penyampaian ORDER BY id_cara_penyampaian";
-                                                    $stmt_cara_penyampaian = $db->prepare($selectSql);
-                                                    $stmt_cara_penyampaian->execute();
+                                                    <option value="" disabled selected><?php echo $row['cara_penyampaian'] ?></option>
 
-                                                    while ($row_cara_penyampaian = $stmt_cara_penyampaian->fetch(PDO::FETCH_ASSOC)) {
-                                                        echo '<option value="' . $row_cara_penyampaian["pilih_cara_penyampaian"] . '">' . $row_cara_penyampaian["penyampaian"] . '</option>';
-                                                    }
-                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -166,7 +172,7 @@ if (isset($_SESSION['hasil'])) {
 
                             <!-- Pelapor -->
                             <div id="pelapor" class="col s12">
-                                <form class="row mt-2 mb-2">
+                                <form method="POST" class="row mt-2 mb-2">
                                     <p><a>Informasi Pelapor</a></p>
                                     <div class="col s12">
                                         <div class="input-field col s12">
@@ -313,7 +319,7 @@ if (isset($_SESSION['hasil'])) {
 
                             <!-- Terlapor -->
                             <div id="terlapor" class="col s12">
-                                <form class="row mt-2 mb-2">
+                                <form method="POST" class="row mt-2 mb-2">
                                     <p><a>Informasi Terlapor</a></p>
                                     <div class="col s12">
                                         <div class="input-field col s12">
@@ -385,10 +391,11 @@ if (isset($_SESSION['hasil'])) {
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s12 pr-7">
-                                    <a href="#" class="btn cyan waves-effect waves-light right simpan">
-                                        <i class="material-icons right">send</i>
-                                        <span class="hide-on-small-only">Submit</span>
-                                    </a>
+                                    <form method="POST">
+                                        <button type="submit" class="btn btn_succes waves-effect waves-light float-right" name="button_create">
+                                            <i class="material-icons right">send</i></i> Simpan
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -566,33 +573,4 @@ if (isset($_SESSION['hasil'])) {
         });
 
     });
-</script>
-
-<script>
-    $('.simpan').click(function() {
-        swal({
-            title: "Anda Yakin ingin menyimpan registrasi laporan?",
-            text: "Pastikan data yang Anda isi sudah benar",
-            icon: 'warning',
-            dangerMode: true,
-            buttons: {
-                cancel: 'Batal',
-                delete: 'Simpan'
-            }
-        }).then(function(willDelete) {
-            if (willDelete) {
-                swal({
-                    title: 'Tersimpan',
-                    icon: "success",
-                }).then(function() {
-                    window.location = "?page=registrasi-laporan";
-                });
-            } else {
-                swal({
-                    title: 'Dibatalkan',
-                    icon: "error",
-                });
-            }
-        });
-    })
 </script>

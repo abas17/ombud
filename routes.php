@@ -29,9 +29,12 @@ if (isset($_GET['page'])) {
         case 'registrasi-laporan-create':
             file_exists('pages/registrasi-laporan-create.php') ? include 'pages/registrasi-laporan-create.php' : include "pages/404.php";
             break;
-        case 'registrasi-laporan-creates':
-            file_exists('pages/registrasi-laporan-creates.php') ? include 'pages/registrasi-laporan-creates.php' : include "pages/404.php";
+        case 'registrasi-laporan-edit':
+            file_exists('pages/registrasi-laporan-edit.php') ? include 'pages/registrasi-laporan-edit.php' : include "pages/404.php";
             break;
+        // case 'registrasi-laporan-creates':
+        //     file_exists('pages/registrasi-laporan-creates.php') ? include 'pages/registrasi-laporan-creates.php' : include "pages/404.php";
+        //     break;
 
             /* Verifikasi */
         case 'verifikasi':
