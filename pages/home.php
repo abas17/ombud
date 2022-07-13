@@ -1,4 +1,36 @@
-
+<?php
+if (isset($_SESSION['hasil'])) {
+    if ($_SESSION['hasil']) {
+?>
+        <div class="card-alert card gradient-45deg-green-teal">
+            <div class="card-content white-text">
+                <p>
+                    <i class="material-icons">check</i> <?php echo $_SESSION['pesan'] ?>
+                </p>
+            </div>
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    <?php
+    } else {
+    ?>
+        <div class="card-alert card gradient-45deg-red-pink">
+            <div class="card-content white-text">
+                <p>
+                    <i class="material-icons">error</i> <?php echo $_SESSION['pesan'] ?>
+                </p>
+            </div>
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+<?php
+    }
+    unset($_SESSION['hasil']);
+    unset($_SESSION['pesan']);
+}
+?>
 <div class="section">
     <!--card stats start-->
     <div id="card-stats" class="pt-0">

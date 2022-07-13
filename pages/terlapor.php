@@ -16,7 +16,7 @@
         </a>
     </div>
     <!-- create invoice button-->
-    
+
     <div class="filter-btn">
         <!-- Dropdown Trigger -->
         <a class='dropdown-trigger btn waves-effect waves-light purple darken-1 border-round' href='#' data-target='btn-filter'>
@@ -49,21 +49,34 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>0170/LM/XI/2021/BJM</td>
-                    <td>Direktur PDAM Intan Banjar</td>
-                    <td>BUMN/BUMD</td>
-                    <td>PDAM Intan Banjar</td>
-                    <td>Jl. Pangeran Hidayatullah No.24, Komet, Kec. Banjarbaru Utara, Kota Banjar Baru</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                        <a href=""><i class="material-icons">remove_red_eye</i></a>
-                    </td>
-                </tr>
-                
+                <?php
+                $database = new Database();
+                $db = $database->getConnection();
+                $selectSql = "SELECT r.id_reg, r.no_arsip,t.nama_terlapor,t.kelompok_klasifikasi_instansi,t.instansi_terlapor,t.alamat_terlapor, kki.pilih_kel 
+FROM registrasi_lap_masyarakat r JOIN terlapor t ON r.id_reg=t.id_ter
+JOIN kelompok_klasifikasi_instansi kki ON t.kelompok_klasifikasi_instansi = kki.id_kel ORDER BY id_reg desc";
+                $stmt = $db->prepare($selectSql);
+                $stmt->execute();
+                $no = 1;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $row['no_arsip'] ?></td>
+                        <td><?php echo $row['nama_terlapor'] ?></td>
+                        <td><?php echo $row['pilih_kel'] ?></td>
+                        <td><?php echo $row['instansi_terlapor'] ?></td>
+                        <td><?php echo $row['alamat_terlapor'] ?></td>
+                        <td>
+                            <a href=""><i class="material-icons">edit</i></a>
+                            <a href=""><i class="material-icons">remove_red_eye</i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
 
             </tbody>
         </table>

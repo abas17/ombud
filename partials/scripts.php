@@ -9,6 +9,8 @@
 <script src="app-assets/vendors/data-tables/js/dataTables.select.min.js"></script>
 <script src="app-assets/vendors/sweetalert/sweetalert.min.js"></script>
 <script src="app-assets/vendors/dropify/js/dropify.min.js"></script>
+<script src="app-assets/vendors/jquery-validation/jquery.validate.min.js"> </script>
+<script src="app-assets/vendors/formatter/jquery.formatter.min.js"></script>
 <!-- END PAGE VENDOR JS-->
 <!-- BEGIN THEME  JS-->
 <script src="app-assets/js/plugins.js"></script>
@@ -24,4 +26,6 @@
 <script src="app-assets/js/scripts/form-file-uploads.js"></script>
 <script src="app-assets/js/scripts/advance-ui-media.js"></script>
 <script src="app-assets/js/scripts/ui-alerts.js"></script>
+<script src="app-assets/js/scripts/page-account-settings.js"></script>
+<script src="app-assets/js/scripts/form-validation.js"></script>
 <!-- END PAGE LEVEL JS-->

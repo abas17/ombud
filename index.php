@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once("auth.php");
 
 include 'fungsi.php';
 ?>
@@ -13,7 +13,18 @@ include 'fungsi.php';
 
     <?php include 'partials/nav.php'; ?>
 
-    <?php include 'partials/sidebar.php'; ?>
+    <?php
+    $level = $_SESSION['user']['level'];
+    if ($level == 'ADMIN') {
+        include "partials/sidebar.php";
+    }
+    if ($level == 'STAFF') {
+        include "partials/sidebar-staff.php";
+    }
+    if ($level == 'USER') {
+        include "partials/sidebar-user.php";
+    }
+    ?>
 
     <!-- BEGIN: Page Main-->
     <div id="main">

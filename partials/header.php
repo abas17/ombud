@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="app-assets/css/pages/app-invoice.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/pages/data-tables.css">
     <link rel="stylesheet" type="text/css" href="app-assets/css/pages/advance-ui-media.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/page-account-settings.css">
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="app-assets/css/custom/custom.css">

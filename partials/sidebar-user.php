@@ -7,15 +7,10 @@
 
         <li><a class="waves-effect waves-cyan " href="index.php"><i class="material-icons">settings_input_svideo</i><span data-i18n="eCommerce">Dashboard</span></a>
         </li>
-
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="User">User</span></a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li><a href="?page=users-list"><i class="material-icons">radio_button_unchecked</i><span data-i18n="List">List</span></a>
-                    </li>
-                </ul>
-            </div>
+        <li><a class="waves-effect waves-cyan ?>" href="?page=laporan"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="User Profile">Laporan Saya</span></a>
         </li>
+
+
 
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>

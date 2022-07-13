@@ -50,44 +50,41 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>010228.2022</td>
-                    <td>0179/LM/VI/2022/BJM</td>
-                    <td>Alya</td>
-                    <td>PT. BTN (Persero) Tbk Kantor Cabang Banjarmasin</td>
-                    <td>Perbankan</td>
-                    <td>Dugaan penundaan berlarut oleh PT. BTN (Persero) Tbk Kantor Cabang Banjarmasin terkait tidak adanya informasi dan tindaklanjut atas klaim asuransi jiwa a.n Abdul Kadir yang telah diajukan Pelapor.</td>
-                    <td>Laporan Sederhana</td>
-                    <td><span class="green-text">Tidak Rahasia</span>
-                    </td>
-                    <td>2022-06-20</td>
-                    <td>8 hari</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>010228.2022</td>
-                    <td>0179/LM/VI/2022/BJM</td>
-                    <td>Alya</td>
-                    <td>PT. BTN (Persero) Tbk Kantor Cabang Banjarmasin</td>
-                    <td>Perbankan</td>
-                    <td>Dugaan penundaan berlarut oleh PT. BTN (Persero) Tbk Kantor Cabang Banjarmasin terkait tidak adanya informasi dan tindaklanjut atas klaim asuransi jiwa a.n Abdul Kadir yang telah diajukan Pelapor.</td>
-                    <td>Laporan Sederhana</td>
-                    <td><span class="green-text">Tidak Rahasia</span>
-                    </td>
-                    <td>2022-06-20</td>
-                    <td>8 hari</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                    </td>
-                </tr>
+                <?php
+                $database = new Database();
+                $db = $database->getConnection();
+                $selectSql = "SELECT r.id_reg, r.no_agenda, r.no_arsip, p.nama_pelapor, t.nama_terlapor, s.nama_sub, 
+                                r.perihal, p.identitas_pelapor_rahasia
+                                FROM registrasi_lap_masyarakat r 
+                                JOIN pelapor p ON r.id_reg=p.id_pel
+                                JOIN terlapor t ON p.id_pel=t.id_ter
+                                JOIN substansi s ON r.substansi=s.id_sub ORDER BY id_reg desc";
+                $stmt = $db->prepare($selectSql);
+                $stmt->execute();
+                $no = 1;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $row['no_agenda'] ?></td>
+                        <td><?php echo $row['no_arsip'] ?></td>
+                        <td><?php echo $row['nama_pelapor'] ?></td>
+                        <td><?php echo $row['nama_terlapor'] ?></td>
+                        <td><?php echo $row['nama_sub'] ?></td>
+                        <td><?php echo $row['perihal'] ?></td>
+                        <td>? Laporan Sederhana</td>
+                        <td><?php echo $row['identitas_pelapor_rahasia'] ?></td>
+                        <td>? 2022-06-20</td>
+                        <td>? 8 hari</td>
+                        <td>
+                            <a href=""><i class="material-icons">edit</i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
 
             </tbody>
         </table>

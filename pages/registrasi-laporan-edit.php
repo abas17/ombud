@@ -4,8 +4,9 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
     $db = $database->getConnection();
 
     $id = $_GET['id'];
-    $findSql = "SELECT * FROM registrasi_lap_masyarakat
-JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_reg = ?";
+    $findSql = "SELECT * FROM registrasi_lap_masyarakat r 
+JOIN pelapor p ON r.id_reg=p.id_pel
+JOIN terlapor t ON p.id_pel=t.id_ter where id_reg = ?";
     $stmt = $db->prepare($findSql);
     $stmt->bindParam(1, $id);
     $stmt->execute();
@@ -13,14 +14,18 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
 
     if (isset($row['id_reg'])) {
         if (isset($_POST['button_update'])) {
-            $updateSql = "UPDATE registrasi_lap_masyarakat SET tgl_agenda = ?, tipe_laporan = ?, cara_penyampaian = ?, no_agenda = ?, no_arsip = ? WHERE id_reg = ?";
+            $updateSql = "UPDATE registrasi_lap_masyarakat SET tgl_agenda = ?, tipe_laporan = ?, cara_penyampaian = ?, no_agenda = ?, no_arsip = ?, 
+            substansi = ?, klasifikasi_permasalahan=?, perihal = ? WHERE id_reg = ?";
             $stmt = $db->prepare($updateSql);
             $stmt->bindParam(1, $_POST['tgl_agenda']);
             $stmt->bindParam(2, $_POST['tipe_laporan']);
             $stmt->bindParam(3, $_POST['cara_penyampaian']);
             $stmt->bindParam(4, $_POST['no_agenda']);
             $stmt->bindParam(5, $_POST['no_arsip']);
-            $stmt->bindParam(6, $_POST['id']);
+            $stmt->bindParam(6, $_POST['substansi']);
+            $stmt->bindParam(7, $_POST['klasifikasi_permasalahan']);
+            $stmt->bindParam(8, $_POST['perihal']);
+            $stmt->bindParam(9, $_POST['id']);
             if ($stmt->execute()) {
                 $_SESSION['hasil'] = true;
                 $_SESSION['pesan'] = "Berhasil ubah data";
@@ -30,6 +35,8 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
             }
             echo '<meta http-equiv="refresh" content="0; url=?page=registrasi-laporan">';
         }
+
+
 
 ?>
         <div class="row">
@@ -89,12 +96,17 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
                                                         <select name="tipe_laporan" id="tipe_laporan" class="select2 browser-default">
                                                             <option value="" disabled selected>---Pilih Tipe Laporan---</option>
                                                             <?php
+                                                            $tipelap = $row['tipe_laporan'];
                                                             $selectSql = "SELECT * FROM tipe_laporan";
                                                             $stmt_tipe_laporan = $db->prepare($selectSql);
                                                             $stmt_tipe_laporan->execute();
 
                                                             while ($row_tipe_laporan = $stmt_tipe_laporan->fetch(PDO::FETCH_ASSOC)) {
-                                                                echo '<option value="' . $row_tipe_laporan["tipe_lap"] . '">' . $row_tipe_laporan["tipe_lap"] . '</option>';
+                                                                if ($row_tipe_laporan["tipe_lap"] == $tipelap) {
+                                                                    echo "<option value='" . $row_tipe_laporan["tipe_lap"] . "' selected>" . $row_tipe_laporan["tipe_lap"] . "</option>";
+                                                                } else {
+                                                                    echo "<option value='" . $row_tipe_laporan["tipe_lap"] . "'>" . $row_tipe_laporan["tipe_lap"] . "</option>";
+                                                                }
                                                             }
                                                             ?>
                                                         </select>
@@ -108,12 +120,17 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
                                                         <select name="cara_penyampaian" id="cara_penyampaian" class="select2 browser-default">
                                                             <option value="" disabled selected>---Pilih Cara Penyampaian---</option>
                                                             <?php
+                                                            $cara_pen = $row['cara_penyampaian'];
                                                             $selectSql = "SELECT * FROM cara_penyampaian ORDER BY id_cara_penyampaian";
                                                             $stmt_cara_penyampaian = $db->prepare($selectSql);
                                                             $stmt_cara_penyampaian->execute();
 
                                                             while ($row_cara_penyampaian = $stmt_cara_penyampaian->fetch(PDO::FETCH_ASSOC)) {
-                                                                echo '<option value="' . $row_cara_penyampaian["penyampaian"] . '">' . $row_cara_penyampaian["penyampaian"] . '</option>';
+                                                                if ($row_cara_penyampaian["penyampaian"] == $cara_pen) {
+                                                                    echo "<option value='" . $row_cara_penyampaian["penyampaian"] . "' selected>" . $row_cara_penyampaian["penyampaian"] . "</option>";
+                                                                } else {
+                                                                    echo "<option value='" . $row_cara_penyampaian["penyampaian"] . "'>" . $row_cara_penyampaian["penyampaian"] . "</option>";
+                                                                }
                                                             }
                                                             ?>
                                                         </select>
@@ -136,9 +153,21 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
                                                         <label for="substansi">Substansi</label>
                                                     </div>
                                                     <select class="select2 browser-default" name="substansi" id="substansi">
-                                                        <option value="<?php echo $row['id_sub'] ?>" disabled selected>---Pilih Substansi---</option>
+                                                        <option value="" disabled selected>---Pilih Substansi---</option>
+                                                        <?php
+                                                        $sub = $row['substansi'];
+                                                        $selectSql = "SELECT * FROM substansi ORDER BY nama_sub ASC";
+                                                        $stmt = $db->prepare($selectSql);
+                                                        $stmt->execute();
 
-
+                                                        while ($rowsub = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                            if ($rowsub["id_sub"] == $sub) {
+                                                                echo "<option value='" . $rowsub["id_sub"] . "' selected>" . $rowsub["nama_sub"] . "</option>";
+                                                            } else {
+                                                                echo "<option value='" . $rowsub["id_sub"] . "'>" . $rowsub["nama_sub"] . "</option>";
+                                                            }
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="input-field col s12">
@@ -147,7 +176,20 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
                                                     </div>
                                                     <select class="select2 browser-default" name="klasifikasi_permasalahan" id="klasifikasi_permasalahan">
                                                         <option value="" disabled selected>---Pilih Pokok Permasalahan---</option>
-
+                                                        <?php
+                                                        $pokper=$row['klasifikasi_permasalahan'];
+                                                        $selectSql = "SELECT * FROM klasifikasi_permasalahan WHERE id_sub=? order by nama_klasper";
+                                                        $stmt = $db->prepare($selectSql);
+                                                        $stmt->bindParam(1, $sub);
+                                                        $stmt->execute();
+                                                        while ($rowpokper = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                            if ($rowpokper["id_klasper"] == $pokper) {
+                                                                echo "<option value='" . $rowpokper["id_klasper"] . "' selected>" . $rowpokper["nama_klasper"] . "</option>";
+                                                            } else {
+                                                                echo "<option value='" . $rowpokper["id_klasper"] . "'>" . $rowpokper["nama_klasper"] . "</option>";
+                                                            }
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="input-field col s12">
@@ -389,172 +431,9 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
             </div>
         </div>
 
-
         <?php include 'partials/scripts.php'; ?>
 
-        <script type="text/javascript">
-            $(provinsi_pel).ready(function() {
-                $.ajax({
-                    type: 'POST',
-                    url: "get_provinsi.php",
-                    cache: false,
-                    success: function(msg) {
-                        $("#provinsi_pel").html(msg);
-                    }
-                });
 
-                $("#provinsi_pel").change(function() {
-                    var provinsi = $("#provinsi_pel").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_kabupaten.php",
-                        data: {
-                            provinsi: provinsi
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#kabupaten_pel").html(msg);
-                        }
-                    });
-                });
-
-                $("#kabupaten_pel").change(function() {
-                    var kabupaten = $("#kabupaten_pel").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_kecamatan.php",
-                        data: {
-                            kabupaten: kabupaten
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#kecamatan_pel").html(msg);
-                        }
-                    });
-                });
-            });
-
-            $(provinsi_ter).ready(function() {
-                $.ajax({
-                    type: 'POST',
-                    url: "get_provinsi.php",
-                    cache: false,
-                    success: function(msg) {
-                        $("#provinsi_ter").html(msg);
-                    }
-                });
-
-                $("#provinsi_ter").change(function() {
-                    var provinsi = $("#provinsi_ter").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_kabupaten.php",
-                        data: {
-                            provinsi: provinsi
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#kabupaten_ter").html(msg);
-                        }
-                    });
-                });
-
-                $("#kabupaten_ter").change(function() {
-                    var kabupaten = $("#kabupaten_ter").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_kecamatan.php",
-                        data: {
-                            kabupaten: kabupaten
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#kecamatan_ter").html(msg);
-                        }
-                    });
-                });
-            });
-
-            $(substansi).ready(function() {
-                $.ajax({
-                    type: 'POST',
-                    url: "get_sub.php",
-                    cache: false,
-                    success: function(msg) {
-                        $("#substansi").html(msg);
-                    }
-                });
-
-                $("#substansi").change(function() {
-                    var substansi = $("#substansi").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_pokper.php",
-                        data: {
-                            substansi: substansi
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#klasifikasi_permasalahan").html(msg);
-                        }
-                    });
-                });
-            });
-
-            $(warga_negara).ready(function() {
-                $.ajax({
-                    type: 'POST',
-                    url: "get_warga.php",
-                    cache: false,
-                    success: function(msg) {
-                        $("#warga_negara").html(msg);
-                    }
-                });
-
-                $("#warga_negara").change(function() {
-                    var warga = $("#warga_negara").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_identitas.php",
-                        data: {
-                            warga: warga
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#jenis_identitas").html(msg);
-                        }
-                    });
-                });
-
-            });
-
-            $(kelompok_klasifikasi_instansi).ready(function() {
-                $.ajax({
-                    type: 'POST',
-                    url: "get_kel_klas.php",
-                    cache: false,
-                    success: function(msg) {
-                        $("#kelompok_klasifikasi_instansi").html(msg);
-                    }
-                });
-
-                $("#kelompok_klasifikasi_instansi").change(function() {
-                    var klas_ins = $("#kelompok_klasifikasi_instansi").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "get_klas_ins.php",
-                        data: {
-                            klas_ins: klas_ins
-                        },
-                        cache: false,
-                        success: function(msg) {
-                            $("#klasifikasi_instansi_terlapor").html(msg);
-                        }
-                    });
-                });
-
-            });
-        </script>
 
 <?php
     } else {
@@ -563,3 +442,160 @@ JOIN substansi ON registrasi_lap_masyarakat.substansi=substansi.id_sub WHERE id_
 } else {
     echo '<meta http-equiv="refresh" content="0; url=?page=registrasi-laporan">';
 }
+?>
+
+<script type="text/javascript">
+    $(provinsi_pel).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_provinsi.php",
+            cache: false,
+            success: function(msg) {
+                $("#provinsi_pel").html(msg);
+            }
+        });
+
+        $("#provinsi_pel").change(function() {
+            var provinsi = $("#provinsi_pel").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kabupaten.php",
+                data: {
+                    provinsi: provinsi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kabupaten_pel").html(msg);
+                }
+            });
+        });
+
+        $("#kabupaten_pel").change(function() {
+            var kabupaten = $("#kabupaten_pel").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kecamatan.php",
+                data: {
+                    kabupaten: kabupaten
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kecamatan_pel").html(msg);
+                }
+            });
+        });
+    });
+
+    $(provinsi_ter).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_provinsi.php",
+            cache: false,
+            success: function(msg) {
+                $("#provinsi_ter").html(msg);
+            }
+        });
+
+        $("#provinsi_ter").change(function() {
+            var provinsi = $("#provinsi_ter").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kabupaten.php",
+                data: {
+                    provinsi: provinsi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kabupaten_ter").html(msg);
+                }
+            });
+        });
+
+        $("#kabupaten_ter").change(function() {
+            var kabupaten = $("#kabupaten_ter").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_kecamatan.php",
+                data: {
+                    kabupaten: kabupaten
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#kecamatan_ter").html(msg);
+                }
+            });
+        });
+    });
+
+    $(substansi).ready(function() {
+
+        $("#substansi").change(function() {
+            var substansi = $("#substansi").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_pokper.php",
+                data: {
+                    substansi: substansi
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#klasifikasi_permasalahan").html(msg);
+                }
+            });
+        });
+    });
+
+    $(warga_negara).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_warga.php",
+            cache: false,
+            success: function(msg) {
+                $("#warga_negara").html(msg);
+            }
+        });
+
+        $("#warga_negara").change(function() {
+            var warga = $("#warga_negara").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_identitas.php",
+                data: {
+                    warga: warga
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#jenis_identitas").html(msg);
+                }
+            });
+        });
+
+    });
+
+    $(kelompok_klasifikasi_instansi).ready(function() {
+        $.ajax({
+            type: 'POST',
+            url: "get_kel_klas.php",
+            cache: false,
+            success: function(msg) {
+                $("#kelompok_klasifikasi_instansi").html(msg);
+            }
+        });
+
+        $("#kelompok_klasifikasi_instansi").change(function() {
+            var klas_ins = $("#kelompok_klasifikasi_instansi").val();
+            $.ajax({
+                type: 'POST',
+                url: "get_klas_ins.php",
+                data: {
+                    klas_ins: klas_ins
+                },
+                cache: false,
+                success: function(msg) {
+                    $("#klasifikasi_instansi_terlapor").html(msg);
+                }
+            });
+        });
+
+    });
+</script>

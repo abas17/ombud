@@ -48,38 +48,37 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>Laporan masyarakat</td>
-                    <td>010136.2022</td>
-                    <td>27 Mei 2022</td>
-                    <td>ayu</td>
-                    <td>Ketua Pengadlan Agama Pelaihri</td>
-                    <td>Kantor Perwakilan Kalimantan Selatan</td>
-                    <td>Registrasi</td>
-                    <td>31 hari</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>1</td>
-                    <td>Laporan masyarakat</td>
-                    <td>010136.2022</td>
-                    <td>27 Mei 2022</td>
-                    <td>ayu</td>
-                    <td>Ketua Pengadlan Agama Pelaihri</td>
-                    <td>Kantor Perwakilan Kalimantan Selatan</td>
-                    <td>Registrasi</td>
-                    <td>31 hari</td>
-                    <td>
-                        <a href=""><i class="material-icons">edit</i></a>
-                    </td>
-                </tr>
+                <?php
+                $database = new Database();
+                $db = $database->getConnection();
+                $selectSql = "SELECT r.id_reg, r.tipe_laporan, r.no_agenda, r.tgl_agenda, p.nama_pelapor, t.nama_terlapor, r.verifikasi 
+                                FROM registrasi_lap_masyarakat r 
+                                JOIN pelapor p ON r.id_reg=p.id_pel
+                                JOIN terlapor t ON p.id_pel=t.id_ter ORDER BY id_reg desc";
+                $stmt = $db->prepare($selectSql);
+                $stmt->execute();
+                $no = 1;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $row['tipe_laporan'] ?></td>
+                        <td><?php echo $row['no_agenda'] ?></td>
+                        <td><?php echo tgl_indo($row['tgl_agenda']) ?></td>
+                        <td><?php echo $row['nama_pelapor'] ?></td>
+                        <td><?php echo $row['nama_terlapor'] ?></td>
+                        <td>? Kantor Perwakilan Kalimantan Selatan</td>
+                        <td>? Memenuhi Syarat Formil</td>
+                        <td>? 30 hari</td>
+                        <td>
+                            <a href=""><i class="material-icons">edit</i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
 
             </tbody>
         </table>

@@ -6,7 +6,7 @@ if (isset($_POST['button_create'])) {
     $db->beginTransaction();
 
     $insertSql = "INSERT INTO registrasi_lap_masyarakat(id_reg,tgl_agenda,tipe_laporan,cara_penyampaian,no_agenda,no_arsip,substansi,klasifikasi_permasalahan,perihal,status) 
-  VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+    VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $db->prepare($insertSql);
     $stmt->bindParam(1, $_POST['tgl_agenda']);
     $stmt->bindParam(2, $_POST['tipe_laporan']);
@@ -264,8 +264,8 @@ if (isset($_POST['button_create'])) {
                                             </div>
                                             <select name="jenis_kelamin">
                                                 <option value="" disabled selected>---Pilih Jenis Kelamin---</option>
-                                                <option value="jenis_kelamin_1">Laki-laki</option>
-                                                <option value="jenis_kelamin_2">Perempuan</option>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="input-field col s12">
@@ -274,15 +274,15 @@ if (isset($_POST['button_create'])) {
                                             </div>
                                             <select name="pendidikan_pelapor">
                                                 <option value="" disabled selected>---Pilih Pendidikan Terakhir---</option>
-                                                <option value="pendidikan_1">SD</option>
-                                                <option value="pendidikan_2">SMP</option>
-                                                <option value="pendidikan_4">D3</option>
-                                                <option value="pendidikan_5">S1</option>
-                                                <option value="pendidikan_6">S2</option>
-                                                <option value="pendidikan_7">S3</option>
-                                                <option value="pendidikan_8">Tidak Sekolah</option>
-                                                <option value="pendidikan_3">SMA/Sederajat</option>
-                                                <option value="pendidikan_9">Lainnya</option>
+                                                <option value="SD">SD</option>
+                                                <option value="SMP">SMP</option>
+                                                <option value="D3">D3</option>
+                                                <option value="S1">S1</option>
+                                                <option value="S2">S2</option>
+                                                <option value="S3">S3</option>
+                                                <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                                <option value="SMA/Sederajat">SMA/Sederajat</option>
+                                                <option value="Lainnya">Lainnya</option>
                                             </select>
                                         </div>
                                         <div class="input-field col s12">
@@ -291,10 +291,10 @@ if (isset($_POST['button_create'])) {
                                             </div>
                                             <select name="status_perkawinan">
                                                 <option value="" disabled selected>---Pilih Status Perkawinan---</option>
-                                                <option value="status_kawin_1">Kawin</option>
-                                                <option value="status_kawin_2">Belum Kawin</option>
-                                                <option value="status_kawin_4">Cerai Mati</option>
-                                                <option value="status_kawin_5">Cerai Hidup</option>
+                                                <option value="Kawin">Kawin</option>
+                                                <option value="Belum Kawin">Belum Kawin</option>
+                                                <option value="Cerai Mati">Cerai Mati</option>
+                                                <option value="Cerai Hidup">Cerai Hidup</option>
                                             </select>
                                         </div>
                                         <div class="input-field col s12">

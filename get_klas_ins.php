@@ -5,7 +5,7 @@ $db = $database->getConnection();
 
 $klas_ins = $_POST['klas_ins'];
 
-echo "<option value=''>---Pilih Kabupaten---</option>";
+echo "<option value=''>---Pilih Klasifikasi Instansi Terlapor---</option>";
 
 $selectSql = "SELECT * FROM klasifikasi_instansi_terlapor WHERE id_kel=? order by pilih_ins";
 $stmt = $db->prepare($selectSql);

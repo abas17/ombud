@@ -12,6 +12,15 @@ if (isset($_GET['page'])) {
         case 'users-list':
             file_exists('pages/users-list.php') ? include 'pages/users-list.php' : include "pages/404.php";
             break;
+        case 'users-view':
+            file_exists('pages/users-view.php') ? include 'pages/users-view.php' : include "pages/404.php";
+            break;
+        case 'users-edit':
+            file_exists('pages/users-edit.php') ? include 'pages/users-edit.php' : include "pages/404.php";
+            break;
+        case 'user-profile':
+            file_exists('pages/user-profile.php') ? include 'pages/user-profile.php' : include "pages/404.php";
+            break;
 
             /* Page Registrasi Laporan */
         case 'registrasi-laporan-masuk':
@@ -54,6 +63,11 @@ if (isset($_GET['page'])) {
             /* Monitoring */
         case 'monitoring':
             file_exists('pages/monitoring.php') ? include 'pages/monitoring.php' : include "pages/404.php";
+            break;
+
+            /* Level User */
+        case 'laporan':
+            file_exists('pages/user/laporan.php') ? include 'pages/user/laporan.php' : include "pages/404.php";
             break;
 
         default:

@@ -70,34 +70,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td>1</td>
-                                <td>12312312</td>
-                                <td>30/04/2019</td>
-                                <td>Dimas</td>
-                                <td>PDAM</td>
-                                <td>Dugaan tidak memberikan pelayanan oleh PDAM </td>
-                                <td>Laporan Sederhana</td>
-                                <td>Kantor Perwakilan Kalimantan Selatan</td>
-                                <td>Terlapor berada di wilayah Kalimantan Selatan</td>
-                                <td>Berhenti</td>
-                                <td><a href="page-users-edit.html"><i class="material-icons">edit</i></a></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>1</td>
-                                <td>12312312</td>
-                                <td>30/04/2019</td>
-                                <td>Dimas</td>
-                                <td>PDAM</td>
-                                <td>Dugaan tidak memberikan pelayanan oleh PDAM </td>
-                                <td>Laporan Sederhana</td>
-                                <td>Ditolak</td>
-                                <td>Subtansi laporan yang dilaporkan dalam proses pengadilan</td>
-                                <td>Berhenti</td>
-                                <td><a href="page-users-edit.html"><i class="material-icons">edit</i></a></td>
-                            </tr>
+                            <?php
+                            $database = new Database();
+                            $db = $database->getConnection();
+                            $selectSql = "SELECT r.id_reg, r.no_agenda, r.tgl_agenda, p.nama_pelapor, t.nama_terlapor, r.perihal FROM registrasi_lap_masyarakat r 
+                                            JOIN pelapor p ON r.id_reg=p.id_pel
+                                            JOIN terlapor t ON p.id_pel=t.id_ter ORDER BY id_reg desc";
+                            $stmt = $db->prepare($selectSql);
+                            $stmt->execute();
+                            $no = 1;
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+                                <tr>
+                                    <td></td>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $row['no_agenda'] ?></td>
+                                    <td><?php echo tgl_indo($row['tgl_agenda']) ?></td>
+                                    <td><?php echo $row['nama_pelapor'] ?></td>
+                                    <td><?php echo $row['nama_terlapor'] ?></td>
+                                    <td><?php echo $row['perihal'] ?></td>
+                                    <td>? Laporan Sederhana</td>
+                                    <td>? Kantor Perwakilan Kalimantan Selatan</td>
+                                    <td>? Terlapor berada di wilayah Kalimantan Selatan</td>
+                                    <td>? Berhenti</td>
+                                    <td><a href="page-users-edit.html"><i class="material-icons">edit</i></a></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

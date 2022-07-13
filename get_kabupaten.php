@@ -5,7 +5,7 @@ $db = $database->getConnection();
 
 $provinsi = $_POST['provinsi'];
 
-echo "<option value=''>---Pilih Kabupaten---</option>";
+echo "<option value=''>---Pilih Kota/Kabupaten---</option>";
 
 $selectSql = "SELECT * FROM kabupaten WHERE id_prov=? order by nama_kab";
 $stmt = $db->prepare($selectSql);

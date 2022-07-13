@@ -41,9 +41,9 @@
                     <th>No</th>
                     <th>No Arsip</th>
                     <th>Status Rahasia</th>
-                    <th>Nama Lengkap 1</th>
-                    <th>Nomor Identitas 2</th>
-                    <th>Tempat Lahir 3</th>
+                    <th>Nama Lengkap</th>
+                    <th>Nomor Identitas</th>
+                    <th>Tempat Lahir</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat Lengkap</th>
                     <th>Nomor Telepon</th>
@@ -55,10 +55,9 @@
                 <?php
                 $database = new Database();
                 $db = $database->getConnection();
-                $selectSql = "SELECT * FROM pelapor
-JOIN provinsi ON pelapor.provinsi_pel = provinsi.id_prov
-JOIN kabupaten ON pelapor.kabupaten_pel = kabupaten.id_kab
-JOIN kecamatan ON pelapor.kecamatan_pel = kecamatan.id_kec";
+                $selectSql = "SELECT r.id_reg,r.no_arsip, p.identitas_pelapor_rahasia, p.nama_pelapor, p.nomor_identitas, p.tempat_lahir, p.tanggal_lahir, p.alamat_lengkap_pel, p.no_telp
+                                FROM registrasi_lap_masyarakat r
+                                join pelapor p ON r.id_reg=p.id_pel ORDER BY id_reg desc";
                 $stmt = $db->prepare($selectSql);
                 $stmt->execute();
                 $no = 1;
@@ -68,15 +67,14 @@ JOIN kecamatan ON pelapor.kecamatan_pel = kecamatan.id_kec";
                         <td></td>
                         <td></td>
                         <td><?php echo $no++ ?></td>
-                        <td>0170/LM/XI/2021/BJM</td>
-                        <td><span class="green-text">Tidak Rahasia</span>
-                        </td>
-                        <td><?php echo $row['nama_prov'] ?></td>
-                        <td><?php echo $row['nama_kab'] ?></td>
-                        <td><?php echo $row['nama_kec'] ?></td>
-                        <td>2021-12-25</td>
-                        <td>Jl. Tembikar kanan, komplek fadillah perdana</td>
-                        <td>0895606052361</td>
+                        <td><?php echo $row['no_arsip'] ?></td>
+                        <td><?php echo $row['identitas_pelapor_rahasia'] ?></td>
+                        <td><?php echo $row['nama_pelapor'] ?></td>
+                        <td><?php echo $row['nomor_identitas'] ?></td>
+                        <td><?php echo $row['tempat_lahir'] ?></td>
+                        <td><?php echo tgl_indo($row['tanggal_lahir']) ?></td>
+                        <td><?php echo $row['alamat_lengkap_pel'] ?></td>
+                        <td><?php echo $row['no_telp'] ?></td>
                         <td>
                             <a href=""><i class="material-icons">edit</i></a>
                             <a href=""><i class="material-icons">remove_red_eye</i></a>

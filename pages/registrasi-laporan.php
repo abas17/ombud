@@ -111,7 +111,7 @@ if (isset($_SESSION['hasil'])) {
                         <td><?php echo $row['nama_terlapor'] ?></td>
                         <td><?php echo $row['instansi_terlapor'] ?></td>
                         <td><?php echo $row['perihal'] ?></td>
-                        <td></td>
+                        <td>? Kantor Perwakilan Kalimantan Selatan</td>
                         <td><?php $durasi = new DateTime($row['tgl_agenda']);
                             $today = new DateTime();
                             $diff = $today->diff($durasi);
