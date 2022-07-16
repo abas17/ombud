@@ -9,8 +9,7 @@
 
         <li class="navigation-header"><a class="navigation-header-text">REGISTRASI LAPORAN </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li><a class="waves-effect waves-cyan ?>" href="?page=registrasi-laporan-masuk"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="User Profile">Laporan Masuk</span></a>
-        </li>
+        
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="Pages">Registrasi Laporan</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -39,12 +38,25 @@
 
         <li class="navigation-header"><a class="navigation-header-text">PEMERIKSAAN </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="?page=pemeriksaan"><i class="material-icons">work</i><span class="menu-title" data-i18n="User Profile">Mulai Pemeriksaan</span></a>
+        <li class="bold"><a class="waves-effect waves-cyan " href="?page=pemeriksaan"><i class="material-icons">work</i><span class="menu-title" data-i18n="User Profile">Pemeriksaan</span></a>
+        </li>
+        <li class="bold"><a class="waves-effect waves-cyan " href="?page=laporan-selesai"><i class="material-icons">done</i><span class="menu-title" data-i18n="User Profile">Laporan Selesai</span></a>
         </li>
 
         <li class="navigation-header"><a class="navigation-header-text">MONITORING </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan " href="?page=monitoring"><i class="material-icons">poll</i><span class="menu-title" data-i18n="User Profile">Monitoring Registrasi Laporan </span></a>
+        </li>
+
+        <li class="navigation-header"><a class="navigation-header-text">REPORT </a><i class="navigation-header-icon material-icons">more_horiz</i>
+        </li>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">print</i><span class="menu-title" data-i18n="Pages">Surat Keluar</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="?page=surat-keluar"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Search">Surat Penutupan Laporan</span></a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
     </ul>

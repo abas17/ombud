@@ -10,11 +10,6 @@ $(document).ready(function () {
           className: "control"
         },
         {
-          orderable: true,
-          targets: 1,
-          checkboxes: { selectRow: true }
-        },
-        {
           targets: [0, 1],
           orderable: false
         },
@@ -25,7 +20,7 @@ $(document).ready(function () {
         '<"top display-flex  mb-2"<"action-filters"f><"actions action-btns display-flex align-items-center">><"clear">rt<"bottom"p>',
       language: {
         search: "",
-        searchPlaceholder: "Search Invoice"
+        searchPlaceholder: "Search Data"
       },
       select: {
         style: "multi",

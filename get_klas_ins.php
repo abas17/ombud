@@ -14,3 +14,4 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo '<option value="' . $row["id_ins"] . '">' . $row["pilih_ins"] . '</option>';
 }
+?>

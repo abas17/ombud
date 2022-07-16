@@ -16,18 +16,19 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
             date_default_timezone_set('Asia/Makassar');
             $ldate = date('Y-m-d H:i:s', time());
             $date = date('Y-m-d', strtotime($_POST['datepicker']));
-            $updateSql = "UPDATE users SET username = ?, nama = ?, email = ?, level = ?, verified = ?, tgl_lahir = ?, no_tlp = ?, alamat = ?, updationDate = ? WHERE id = ?";
+            $updateSql = "UPDATE users SET username = ?, nama = ?, email = ?, level = ?, verified = ?, perwakilan = ?, tgl_lahir = ?, no_tlp = ?, alamat = ?, updationDate = ? WHERE id = ?";
             $stmt = $db->prepare($updateSql);
             $stmt->bindParam(1, $username);
             $stmt->bindParam(2, $_POST['nama']);
             $stmt->bindParam(3, $_POST['email']);
             $stmt->bindParam(4, $_POST['level']);
             $stmt->bindParam(5, $_POST['verified']);
-            $stmt->bindParam(6, $date);
-            $stmt->bindParam(7, $_POST['phone_code']);
-            $stmt->bindParam(8, $_POST['address']);
-            $stmt->bindParam(9, $ldate);
-            $stmt->bindParam(10, $id);
+            $stmt->bindParam(6, $_POST['perwakilan']);
+            $stmt->bindParam(7, $date);
+            $stmt->bindParam(8, $_POST['phone_code']);
+            $stmt->bindParam(9, $_POST['address']);
+            $stmt->bindParam(10, $ldate);
+            $stmt->bindParam(11, $id);
             if ($stmt->execute()) {
                 $_SESSION['hasil'] = true;
                 $_SESSION['pesan'] = "Berhasil ubah data";
@@ -86,7 +87,7 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
                                 <!-- users edit media object start -->
                                 <div class="media display-flex align-items-center mb-2">
                                     <a class="mr-2" href="#">
-                                        <img src="{{asset('images/avatar/avatar-11.png')}}" alt="users avatar" class="z-depth-4 circle" height="64" width="64">
+                                        <img src="" alt="users avatar" class="z-depth-4 circle" height="64" width="64">
                                     </a>
                                     <div class="media-body">
                                         <h5 class="media-heading mt-0">Avatar</h5>
@@ -97,8 +98,8 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
                                     </div>
                                 </div>
                                 <!-- users edit media object ends -->
-                                <!-- users edit account form start -->
 
+                                <!-- users edit account form start -->
                                 <div class="row">
                                     <div class="col s12 m6">
                                         <div class="row">
@@ -135,6 +136,25 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
                                                     <option value="Yes" <?php if ($row['verified'] == 'Yes') echo 'selected'; ?>>Yes</option>
                                                 </select>
                                                 <label>Verified</label>
+                                            </div>
+                                            <div class="col s12 input-field">
+                                                <select name="perwakilan">
+                                                    <option value="" selected>---Pilih Provinsi Kantor---</option>
+                                                    <?php
+                                                    $prov_per = $row['perwakilan'];
+                                                    $selectSql = "SELECT * FROM provinsi ORDER BY nama_prov ASC";
+                                                    $stmt = $db->prepare($selectSql);
+                                                    $stmt->execute();
+                                                    while ($rowprov_per = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                        if ($rowprov_per["nama_prov"] == $prov_per) {
+                                                            echo '<option value="' . $rowprov_per["nama_prov"] . '"selected>' . $rowprov_per["nama_prov"] . '</option>';
+                                                        } else {
+                                                            echo '<option value="' . $rowprov_per["nama_prov"] . '">' . $rowprov_per["nama_prov"] . '</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <label>Kantor</label>
                                             </div>
 
                                         </div>
@@ -179,9 +199,6 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
                     <!-- users edit Info form ends -->
                 </div>
             </div>
-            <!-- </div> -->
-        </div>
-        </div>
         </div>
         <!-- users edit ends -->
 

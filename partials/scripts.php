@@ -20,7 +20,7 @@
 <!-- BEGIN PAGE LEVEL JS-->
 <script src="app-assets/js/scripts/page-users.js"></script>
 <script src="app-assets/js/scripts/form-select2.js"></script>
-<script src="app-assets/js/scripts/app-invoice.min.js"></script>
+<script src="app-assets/js/scripts/app-invoice.js"></script>
 <script src="app-assets/js/scripts/data-tables.js"></script>
 <script src="app-assets/js/scripts/extra-components-sweetalert.js"></script>
 <script src="app-assets/js/scripts/form-file-uploads.js"></script>

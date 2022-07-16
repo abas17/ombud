@@ -1,13 +1,8 @@
-<?php
-$database = new Database();
-$db = $database->getConnection();
-?>
 <div class="pt-3 pb-0" id="breadcrumbs-wrapper">
     <div class="col s12 m6 l6">
-        <h5 class="breadcrumbs-title mt-0 mb-0"><span>Registrasi Laporan Masuk</span></h5>
+        <h5 class="breadcrumbs-title mt-0 mb-0"><span>Cetak Surat Penutupan Laporan</span></h5>
     </div>
 </div>
-
 <!-- invoice list -->
 <section class="invoice-list-wrapper section">
     <!-- create invoice button-->
@@ -40,15 +35,11 @@ $db = $database->getConnection();
                     <!-- data table checkbox -->
                     <th></th>
                     <th>No</th>
-                    <th>Tanggal Agenda</th>
                     <th>No Agenda</th>
-                    <th>Tipe Laporan</th>
+                    <th>No Arsip</th>
                     <th>Pelapor</th>
                     <th>Terlapor</th>
-                    <th>Instansi Terlapor</th>
                     <th>Perihal</th>
-                    <th>Kantor</th>
-                    <th>Durasi</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -57,11 +48,14 @@ $db = $database->getConnection();
                 <?php
                 $database = new Database();
                 $db = $database->getConnection();
-
-                $selectSql = "SELECT * FROM provinsi";
+                $selectSql = "SELECT r.id_reg, r.no_agenda, r.no_arsip, p.nama_pelapor, t.nama_terlapor, s.nama_sub, 
+                                r.perihal, p.identitas_pelapor_rahasia
+                                FROM registrasi_lap_masyarakat r 
+                                JOIN pelapor p ON r.id_reg=p.id_pel
+                                JOIN terlapor t ON p.id_pel=t.id_ter
+                                JOIN substansi s ON r.substansi=s.id_sub ORDER BY id_reg desc";
                 $stmt = $db->prepare($selectSql);
                 $stmt->execute();
-
                 $no = 1;
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 ?>
@@ -69,18 +63,13 @@ $db = $database->getConnection();
                         <td></td>
                         <td></td>
                         <td><?php echo $no++ ?></td>
-                        <td><?php echo $row['nama_prov'] ?></td>
-                        <td>12312312</td>
-                        <td>Laporan masyarakat</td>
-                        <td>Ryan</td>
-                        <td>PDAM</td>
-                        <td>BUMN</td>
-                        <td>tidak memberikan pelayanan</td>
-                        <td>ombudsman kalsel</td>
-                        <td>2</td>
+                        <td><?php echo $row['no_agenda'] ?></td>
+                        <td><?php echo $row['no_arsip'] ?></td>
+                        <td><?php echo $row['nama_pelapor'] ?></td>
+                        <td><?php echo $row['nama_terlapor'] ?></td>
+                        <td><?php echo $row['perihal'] ?></td>
                         <td>
-                            <a href=""><i class="material-icons">edit</i></a>
-                            <a href=""><i class="material-icons">remove_red_eye</i></a>
+                            <a href="pages/cetak/cetak_penutupan_laporan.php?&id=<?php echo $row['id_reg'] ?>" target="_blank"><i class="material-icons">mail</i></a>
                         </td>
                     </tr>
                 <?php
@@ -91,6 +80,8 @@ $db = $database->getConnection();
         </table>
     </div>
 </section>
+
+
 
 
 <?php include 'partials/scripts.php'; ?>

@@ -132,6 +132,10 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
                                         <td>Contact:</td>
                                         <td><?php echo $row['no_tlp'] ?></td>
                                     </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td><?php echo $row['alamat'] ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

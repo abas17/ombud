@@ -10,7 +10,7 @@
     <!-- create invoice button-->
     <!-- Options and filter dropdown button-->
     <div class="invoice-filter-action mr-3">
-        <a href="#" class="btn waves-effect waves-light invoice-export border-round z-depth-4">
+        <a href="pages/cetak/cetak_pelapor.php" target="blank" class="btn waves-effect waves-light invoice-export border-round z-depth-4">
             <i class="material-icons">picture_as_pdf</i>
             <span class="hide-on-small-only">Export to PDF</span>
         </a>

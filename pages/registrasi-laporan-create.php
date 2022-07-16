@@ -2,11 +2,13 @@
 $database = new Database();
 $db = $database->getConnection();
 
+$perwakilan = $_SESSION['user']['perwakilan'];
 if (isset($_POST['button_create'])) {
     $db->beginTransaction();
-
-    $insertSql = "INSERT INTO registrasi_lap_masyarakat(id_reg,tgl_agenda,tipe_laporan,cara_penyampaian,no_agenda,no_arsip,substansi,klasifikasi_permasalahan,perihal,status) 
-    VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+    $durasi = 'Proses';
+    $petugas_registrasi = $_SESSION['user']['nama'];
+    $insertSql = "INSERT INTO registrasi_lap_masyarakat(id_reg,tgl_agenda,tipe_laporan,cara_penyampaian,no_agenda,no_arsip,substansi,klasifikasi_permasalahan,perihal,status,durasi,perwakilan,petugas_registrasi) 
+    VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($insertSql);
     $stmt->bindParam(1, $_POST['tgl_agenda']);
     $stmt->bindParam(2, $_POST['tipe_laporan']);
@@ -17,6 +19,9 @@ if (isset($_POST['button_create'])) {
     $stmt->bindParam(7, $_POST['klasifikasi_permasalahan']);
     $stmt->bindParam(8, $_POST['perihal']);
     $stmt->bindParam(9, $_POST['status']);
+    $stmt->bindParam(10, $durasi);
+    $stmt->bindParam(11, $perwakilan);
+    $stmt->bindParam(12, $petugas_registrasi);
     $stmt->execute();
 
     $insertId = $db->lastInsertId();
@@ -276,12 +281,12 @@ if (isset($_POST['button_create'])) {
                                                 <option value="" disabled selected>---Pilih Pendidikan Terakhir---</option>
                                                 <option value="SD">SD</option>
                                                 <option value="SMP">SMP</option>
+                                                <option value="SMA/Sederajat">SMA/Sederajat</option>
                                                 <option value="D3">D3</option>
                                                 <option value="S1">S1</option>
                                                 <option value="S2">S2</option>
                                                 <option value="S3">S3</option>
                                                 <option value="Tidak Sekolah">Tidak Sekolah</option>
-                                                <option value="SMA/Sederajat">SMA/Sederajat</option>
                                                 <option value="Lainnya">Lainnya</option>
                                             </select>
                                         </div>
@@ -334,7 +339,7 @@ if (isset($_POST['button_create'])) {
                                         </div>
                                         <div class="input-field col s12">
                                             <input value="" id="no_telp" name="no_telp" type="text" class="validate">
-                                            <label for="no_telp">Nomor Telepon</label>
+                                            <label for="no_telp">Nomor Handphone</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <input value="" id="email" name="email" type="email" class="validate">

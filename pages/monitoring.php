@@ -47,7 +47,6 @@
                     <th>Terlapor</th>
                     <th>Instansi Terlapor</th>
                     <th>Perihal</th>
-                    <th>Klasifikasi Laporan</th>
                     <th>Asisten Registrasi</th>
                     <th>Asisten verifikasi</th>
                     <th>Asisten Pleno</th>
@@ -59,8 +58,7 @@
                 <?php
                 $database = new Database();
                 $db = $database->getConnection();
-                $selectSql = "SELECT r.id_reg, r.tipe_laporan ,r.no_agenda, r.tgl_agenda, r.no_arsip, p.nama_pelapor, r.status, 
-                                t.nama_terlapor, t.instansi_terlapor, r.perihal 
+                $selectSql = "SELECT *
                                 FROM registrasi_lap_masyarakat r 
                                 JOIN pelapor p ON r.id_reg=p.id_pel
                                 JOIN terlapor t ON p.id_pel=t.id_ter ORDER BY id_reg desc";
@@ -77,22 +75,21 @@
                             <a href=""><i class="material-icons">edit</i></a>
                             <a href=""><i class="material-icons">remove_red_eye</i></a>
                         </td>
-                        <td>? 1 hari</td>
+                        <td><?php echo $row['durasi'] ?></td>
                         <td><?php echo $row['tipe_laporan'] ?></td>
                         <td><?php echo tgl_indo($row['tgl_agenda']) ?></td>
                         <td><?php echo $row['no_agenda'] ?></td>
                         <td><?php echo $row['no_arsip'] ?></td>
                         <td><?php echo $row['nama_pelapor'] ?></td>
-                        <td>? Kantor Perwakilan Kalimantan Selatan</td>
+                        <td>KANTOR PERWAKILAN <?php echo $row['perwakilan'] ?></td>
                         <td><?php echo $row['status'] ?></td>
                         <td><?php echo $row['nama_terlapor'] ?></td>
                         <td><?php echo $row['instansi_terlapor'] ?></td>
                         <td><?php echo $row['perihal'] ?></td>
-                        <td>? Laporan Sederhana</td>
-                        <td>? </td>
-                        <td>? </td>
-                        <td>? </td>
-                        <td>? </td>
+                        <td><?php echo $row['petugas_registrasi'] ?></td>
+                        <td><?php echo $row['petugas_verifikasi'] ?></td>
+                        <td><?php echo $row['petugas_pleno'] ?></td>
+                        <td><?php echo $row['petugas_riksa'] ?></td>
                     </tr>
                 <?php
                 }

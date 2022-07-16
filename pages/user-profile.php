@@ -88,24 +88,25 @@ if (isset($row['id'])) {
     if (isset($_POST['button_update3'])) {
         date_default_timezone_set('Asia/Makassar');
         $ldate = date('Y-m-d H:i:s', time());
-        $updateSql = "UPDATE users SET warga_negara= ?, jenis_identitas= ?, nomor_identitas= ?, tempat_lahir= ?, tgl_lahir= ?, jenis_kelamin= ?, pendidikan= ?, 
+        $updateSql = "UPDATE users SET warga_negara= ?, jenis_identitas= ?, nomor_identitas= ?, file_ktp= ?, tempat_lahir= ?, tgl_lahir= ?, jenis_kelamin= ?, pendidikan= ?, 
         status_perkawinan= ?, pekerjaan= ?, alamat= ?, provinsi= ?, kabupaten= ?, kecamatan= ?, updationDate = ? WHERE id = ?";
         $stmt = $db->prepare($updateSql);
         $stmt->bindParam(1, $_POST['warga_negara']);
         $stmt->bindParam(2, $_POST['jenis_identitas']);
         $stmt->bindParam(3, $_POST['nomor_identitas']);
-        $stmt->bindParam(4, $_POST['tempat_lahir']);
-        $stmt->bindParam(5, $_POST['tgl_lahir']);
-        $stmt->bindParam(6, $_POST['jenis_kelamin']);
-        $stmt->bindParam(7, $_POST['pendidikan']);
-        $stmt->bindParam(8, $_POST['status_perkawinan']);
-        $stmt->bindParam(9, $_POST['pekerjaan']);
-        $stmt->bindParam(10, $_POST['alamat']);
-        $stmt->bindParam(11, $_POST['provinsi']);
-        $stmt->bindParam(12, $_POST['kabupaten']);
-        $stmt->bindParam(13, $_POST['kecamatan']);
-        $stmt->bindParam(14, $ldate);
-        $stmt->bindParam(15, $id);
+        $stmt->bindParam(4, $_POST['file_ktp']);
+        $stmt->bindParam(5, $_POST['tempat_lahir']);
+        $stmt->bindParam(6, $_POST['tgl_lahir']);
+        $stmt->bindParam(7, $_POST['jenis_kelamin']);
+        $stmt->bindParam(8, $_POST['pendidikan']);
+        $stmt->bindParam(9, $_POST['status_perkawinan']);
+        $stmt->bindParam(10, $_POST['pekerjaan']);
+        $stmt->bindParam(11, $_POST['alamat']);
+        $stmt->bindParam(12, $_POST['provinsi']);
+        $stmt->bindParam(13, $_POST['kabupaten']);
+        $stmt->bindParam(14, $_POST['kecamatan']);
+        $stmt->bindParam(15, $ldate);
+        $stmt->bindParam(16, $id);
         if ($stmt->execute()) {
             $_SESSION['hasil'] = true;
             $_SESSION['pesan'] = "Berhasil ubah data";
@@ -323,12 +324,12 @@ if (isset($row['id'])) {
                                         <option value="" disabled selected>---Pilih Pendidikan Terakhir---</option>
                                         <option value="SD" <?php if ($row['pendidikan'] == 'SD') echo 'selected'; ?>>SD</option>
                                         <option value="SMP" <?php if ($row['pendidikan'] == 'SMP') echo 'selected'; ?>>SMP</option>
+                                        <option value="SMA/Sederajat" <?php if ($row['pendidikan'] == 'SMA/Sederajat') echo 'selected'; ?>>SMA/Sederajat</option>
                                         <option value="D3" <?php if ($row['pendidikan'] == 'D3') echo 'selected'; ?>>D3</option>
                                         <option value="S1" <?php if ($row['pendidikan'] == 'S1') echo 'selected'; ?>>S1</option>
                                         <option value="S2" <?php if ($row['pendidikan'] == 'S2') echo 'selected'; ?>>S2</option>
                                         <option value="S3" <?php if ($row['pendidikan'] == 'S3') echo 'selected'; ?>>S3</option>
                                         <option value="Tidak Sekolah" <?php if ($row['pendidikan'] == 'Sekolah') echo 'selected'; ?>>Tidak Sekolah</option>
-                                        <option value="SMA/Sederajat" <?php if ($row['pendidikan'] == 'SMA/Sederajat') echo 'selected'; ?>>SMA/Sederajat</option>
                                         <option value="Lainnya" <?php if ($row['pendidikan'] == 'Lainnya') echo 'selected'; ?>>Lainnya</option>
                                     </select>
                                 </div>
@@ -402,7 +403,7 @@ if (isset($row['id'])) {
                                     <select class="select2 browser-default" name="kecamatan" id="kecamatan">
                                         <option value="" disabled selected>---Pilih Kecamatan---</option>
                                         <?php
-                                        $kec=$row['kecamatan'];
+                                        $kec = $row['kecamatan'];
                                         $selectSql = "SELECT * FROM kecamatan WHERE id_kab=? ORDER BY nama_kec ASC";
                                         $stmt = $db->prepare($selectSql);
                                         $stmt->bindParam(1, $kab);
@@ -415,7 +416,6 @@ if (isset($row['id'])) {
                                             }
                                         }
                                         ?>
-
                                     </select>
                                 </div>
                                 <div class="col s12 display-flex justify-content-end form-action">
@@ -440,8 +440,6 @@ if (isset($row['id'])) {
 ?>
 
 <script type="text/javascript">
-    $(provinsi).ready(function() {
-
         $("#provinsi").change(function() {
             var provinsi = $("#provinsi").val();
             $.ajax({
@@ -471,13 +469,7 @@ if (isset($row['id'])) {
                 }
             });
         });
-    });
 
-
-
-
-
-    $(warga_negara).ready(function() {
 
         $("#warga_negara").change(function() {
             var warga = $("#warga_negara").val();
@@ -493,5 +485,4 @@ if (isset($row['id'])) {
                 }
             });
         });
-    });
 </script>
